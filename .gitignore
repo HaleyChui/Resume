@@ -1,0 +1,5 @@
+# 本機專案：僅忽略 OS/編輯器雜物，保留 resume.md / resume.html 在版管
+.DS_Store
+*.swp
+*.local.png
+.hermes/
