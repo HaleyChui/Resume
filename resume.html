@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陳昱齊 · AI Agent Systems Engineer</title>
+<style>
+  :root{
+    --paper:#faf8f4;
+    --ink:#211c16;
+    --muted:#6f675b;
+    --line:#e4ded3;
+    --gold:#c89b3c;
+    --teal:#0f766e;
+    --teal2:#0e7490;
+    --radius:0;
+    --ease:cubic-bezier(.4,0,.2,1);
+    --maxw:880px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans TC",system-ui,sans-serif;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"kern" 1;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:56px 40px 72px;}
+
+  .name{font-size:40px;line-height:1.1;font-weight:700;letter-spacing:.01em;margin:0;}
+  .role{margin:10px 0 0;font-size:16px;color:var(--muted);letter-spacing:.02em;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
+  .meta .item{font-size:13px;color:var(--muted);}
+  .meta .k{display:inline-block;text-transform:uppercase;letter-spacing:.14em;font-size:10.5px;color:var(--teal);margin-right:8px;font-weight:600;}
+
+  section{margin-top:40px;}
+  .sec-label{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:700;color:var(--teal);margin:0 0 18px;}
+  .sec-label::after{content:"";flex:1;height:1px;background:var(--line);}
+  .sec-label::before{content:"";width:10px;height:10px;background:var(--gold);display:inline-block;}
+
+  p.lead{margin:0;color:var(--ink);}
+  .muted{color:var(--muted);}
+
+  .grid{display:grid;grid-template-columns:200px 1fr;gap:14px 24px;}
+  .grid dt{text-transform:uppercase;letter-spacing:.1em;font-size:12px;font-weight:700;color:var(--teal2);margin:0;padding-top:2px;}
+  .grid dd{margin:0;color:var(--ink);}
+
+  .job{margin-bottom:26px;}
+  .job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 16px;align-items:baseline;}
+  .job .title{font-weight:700;font-size:16px;margin:0;}
+  .job .org{color:var(--muted);font-size:14px;}
+  .job .dates{font-size:12.5px;color:var(--muted);letter-spacing:.04em;white-space:nowrap;}
+  ul.bullets{list-style:none;margin:12px 0 0;padding:0;}
+  ul.bullets li{position:relative;padding-left:20px;margin:0 0 9px;border-left:2px solid var(--line);}
+  ul.bullets li::before{content:"";position:absolute;left:-2px;top:9px;width:8px;height:8px;background:var(--gold);display:block;}
+  ul.bullets li b{color:var(--teal);font-weight:600;}
+
+  .cta{display:inline-block;margin-top:14px;padding:10px 22px;background:var(--gold);color:#fff;border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:700;cursor:pointer;transition:background .25s var(--ease),color .25s var(--ease);border-radius:var(--radius);}
+  .cta:hover{background:transparent;color:var(--gold);}
+
+  @media print{
+    @page{margin:14mm;}
+    body{background:#fff;}
+    .wrap{padding:0;max-width:none;}
+    .cta{display:none;}
+    section{break-inside:avoid;}
+    ul.bullets li{break-inside:avoid;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:36px 20px 48px;}
+    .name{font-size:32px;}
+    .grid{grid-template-columns:1fr;gap:4px 0;}
+    .grid dt{margin-top:10px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1 class="name">陳昱齊　Yu-Chi Chen</h1>
+    <p class="role">AI Agent Systems Engineer　｜　製程 × MES × LLM 跨域整合</p>
+    <div class="meta">
+      <span class="item"><span class="k">Email</span>chyi6295@gmail.com</span>
+      <span class="item"><span class="k">Tel</span>0986-989798</span>
+      <span class="item"><span class="k">Edu</span>國立陽明交通大學 資訊碩士專班（在學）</span>
+    </div>
+  </header>
+
+  <section>
+    <h2 class="sec-label">個人定位</h2>
+    <p class="lead">近 9 年半導體實戰背景（製程 7 年 + MES IT 2 年），陽明交大資科碩專班（在學）。以 LangChain / LangGraph 自主開發 Multi-Agent 工作流與 RAG 系統，實作符合 MCP 協定的 Tool Server，並在開發過程中測試 Prefix Cache 優化策略、Stateful Memory 設計與 Tool Error Fallback 機制。</p>
+    <p class="lead muted" style="margin-top:10px">核心優勢：8 年製造業業務邏輯積累，能精確將工廠複雜需求轉譯為 Agent Task / Tool 規格；建立嚴謹的 Harness 層設計才能真正落地。</p>
+  </section>
+
+  <section>
+    <h2 class="sec-label">核心技術</h2>
+    <dl class="grid">
+      <dt>AI Agent 架構</dt><dd>Harness 設計、LangChain / LangGraph Agent 建構、Tool / Tool Call / Tool Result Flow、Multi-Agent Orchestration、Subagent 拆分策略</dd>
+      <dt>MCP 整合</dt><dd>Model Context Protocol Tool Server 設計與實作（Python）、標準化 Tool 暴露介面、外部系統（DB / API / 模擬設備）接入 Agent</dd>
+      <dt>RAG / Memory</dt><dd>RAG 架構（Embedding → ChromaDB Vector Store → Retrieval → Context 注入）、Chunking 策略選擇、Prefix Cache 命中率優化、Stateful 跨 Session 持久化</dd>
+      <dt>LLM 應用</dt><dd>Prompt Engineering、System Prompt 設計、LangChain LCEL、OpenAI / Anthropic API、Non-determinism 控管、Tool Error Response 格式設計</dd>
+      <dt>後端 / 資料</dt><dd>C#、ASP.NET Core、Python、RESTful API、Oracle、IBM Informix、SQL 優化、ETL 流程設計</dd>
+      <dt>工程實踐</dt><dd>系統監控、日誌分析、Error Handling、Fallback 機制、State 持久化、Automated Check / Human Review 驗收流程</dd>
+      <dt>領域知識</dt><dd>半導體製程、FMEA 風險分析、IATF 16949 / ISO 26262、Apple / Intel / BOSCH 國際稽核經驗</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2 class="sec-label">工作經歷</h2>
+    <div class="job">
+      <div class="top"><div><span class="title">MES IT 工程師</span> <span class="org">｜ 南茂科技股份有限公司</span></div><div class="dates">2024/04 – 至今</div></div>
+      <ul class="bullets">
+        <li><b>工具封裝架構</b>　主導晶圓凸塊製程 MES 系統重構，以 C# / ASP.NET Core 設計標準化 API 介面，將製程資料來源（Oracle / Informix DB、產線設備 API）封裝為可插拔工具模組。推論邏輯不直接存取 DB，而是透過標準介面取得資料，確保可擴展性與資料安全邊界——思路與 MCP Tool Server 一致。</li>
+        <li><b>動態 Context 組裝</b>　設計 ETL 流程將產線即時數據轉化為結構化 Context，依任務類型動態注入業務邏輯，採 Progressive Disclosure 避免全量資料塞入請求，等同 RAG Retrieval 核心原則。</li>
+        <li><b>State 持久化與 Fallback</b>　設計跨製程步驟的 State 持久化機制與明確降級路徑：Tool 回傳異常時走 retry → 人工介入 → 記錄 Handoff Artifact，避免無效循環。</li>
+        <li><b>可觀測性與效能意識</b>　建立監控與日誌分析機制，追蹤工具模組呼叫頻率與延遲；設計上優先批次查詢以減少 Round-trip。</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="top"><div><span class="title">製程工程師（晶圓測試）</span> <span class="org">｜ 南茂科技股份有限公司</span></div><div class="dates">2017/04 – 2024/03</div></div>
+      <ul class="bullets">
+        <li><b>AI 落地 & Human-in-the-loop</b>　主導「Probe Mark AI 影像辨識系統」導入：CV 模型（Tool Call）→ 影像分析（Tool Result）→ 品質判讀 → Permission Request（人工複核高風險結果）；建立 Automated Check 閾值機制對抗 Non-determinism，年節省成本 295 萬元。</li>
+        <li><b>多步驟推理實戰</b>　主持 50+ 場 FMEA 風險分析：問題拆解 → 根因假設 → 實驗驗證 → 改善追蹤，與 Agent 的 Multi-step Reasoning 高度對應。</li>
+        <li><b>跨職能協作與企業稽核</b>　主導 20+ 項製程優化專案，協調製程 / 設備 / 品保 / 客戶平行工作流；應對 Apple、Intel、BOSCH 等 10+ 次國際客戶稽核，熟悉企業對 AI 系統的驗收標準：推理可追溯、Hallucination 控管與 Automated Review 覆核。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-label">專案亮點</h2>
+    <div class="job">
+      <div class="top"><div><span class="title">Probe Mark AI 影像辨識系統</span> <span class="org">｜ 南茂科技 2023</span></div></div>
+      <ul class="bullets">
+        <li><b>架構</b>　CV Model（Tool）→ 影像擷取 API（Tool Call）→ 辨識結果（Tool Result）→ 製程 SOP 判讀（Context 組裝）→ Human Review</li>
+        <li><b>挑戰</b>　Non-determinism 導致班別判讀不一致 → 建立 Automated Check 閾值，低信心度自動觸發人工複核</li>
+        <li><b>效益</b>　年省人力成本 295 萬元；體會 AI 落地關鍵在 Harness 層設計而非選模型</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="top"><div><span class="title">MES 晶圓凸塊生產管控系統重構</span> <span class="org">｜ 南茂科技 2024</span></div></div>
+      <ul class="bullets">
+        <li><b>工具封裝</b>　Oracle DB、Informix 即時數據、設備 API 各自封裝為獨立工具模組，具熱插拔擴充能力</li>
+        <li><b>動態 Context</b>　依任務類型動態組裝，常駐規則固定、專項知識按需載入</li>
+        <li><b>State 持久化</b>　每個工作階段結束前寫入關鍵 State，下次啟動精準重載</li>
+        <li><b>Fallback</b>　異常時明確降級路徑（retry → 人工介入 → Handoff Artifact）</li>
+      </ul>
+    </div>
+    <div class="job">
+      <div class="top"><div><span class="title">LangChain / LangGraph Agent 系統（自主開發）</span> <span class="org">｜ 2024 – 2025</span></div></div>
+      <ul class="bullets">
+        <li><b>RAG Pipeline</b>　LCEL 建構製程 SOP RAG（PDF → 切片 → Embedding → ChromaDB → Similarity Search → Prompt 組裝）；半結構化表格改用固定大小切片 + metadata filter 提升召回</li>
+        <li><b>Stateful Multi-Agent</b>　Orchestrator 分派三個 Subagent（歷史查詢 / SOP 比對 / 根因推論），要求結構化摘要 + 欄位上限抑制 Context 膨脹</li>
+        <li><b>Prefix Cache 優化</b>　System Prompt 混入動態內容會使命中率歸零；改「靜態 System Prompt + 動態 User Turn」降低 Input Token</li>
+        <li><b>MCP Tool Server</b>　Python 實作符合 MCP 協定，暴露 SQLite 與設備狀態 API；定義成功 / 失敗 / 部分失敗三態錯誤格式；驗證推論與資料源解耦</li>
+      </ul>
+      <p class="lead muted" style="margin-top:10px">核心收穫：Agent 系統穩定性取決於 Tool 邊界定義嚴謹度、Error Response 一致性，以及 Orchestrator 對「任務完成 vs 需繼續推論」的判斷——而非模型能力。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec-label">學歷</h2>
+    <dl class="grid">
+      <dt>碩士（在學）</dt><dd>國立陽明交通大學 資訊科學碩士專班　2024 – 預計 2026<br><span class="muted">核心課程：Big Data Analytics、Data Mining、AI/MLOps、Machine Learning；研究方向：LLM × RAG 應用於製造業良率預測與異常告警</span></dd>
+      <dt>學士</dt><dd>國立中正大學 物理學系　2011 – 2015<br><span class="muted">系統化建模、抽象推理與實驗驗證能力，奠定 Agent Spec 制定、Task 拆解與 Automated Check 方法論</span></dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2 class="sec-label">為什麼選我</h2>
+    <dl class="grid">
+      <dt>工具封裝設計力</dt><dd>8 年 API / DB 整合經驗，能快速設計標準化 Tool Server，讓 Agent 以統一介面存取企業內部系統</dd>
+      <dt>RAG & Cache 優化</dt><dd>親測 Chunking 策略差異、Prefix Cache 對 System Prompt 穩定度的敏感性，主動控制 Token Usage 與 Inference Cost</dd>
+      <dt>LangChain 實戰</dt><dd>具備 LCEL / LangGraph Multi-Agent / Stateful Memory 自主開發經驗，理解常見失效模式（Context 膨脹、Tool Error、Prefix Cache 失效）</dd>
+      <dt>Harness 設計力</dt><dd>8 年製程 + MES 雙視角，能精確設計 Tool / System Prompt / Permission Mode 的完整 Harness 層</dd>
+      <dt>業務邏輯轉譯</dt><dd>將模糊工廠需求轉譯為 Agent Task / Tool 規格，跨越「技術可行」與「業務真正需要」的鴻溝</dd>
+      <dt>AI 落地完整經歷</dt><dd>主導 AI 影像辨識系統從需求 → 驗收 → 上線，熟悉 Non-determinism / Hallucination 的企業場景控管</dd>
+    </dl>
+    <button class="cta" onclick="window.print()">列印 / 存 PDF</button>
+  </section>
+
+</div>
+</body>
+</html>
