@@ -250,7 +250,7 @@
         <p class="lead">9 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。<br>以「<span class="hl">跨領域整合</span>」為核心定位：</p>
     <ul class="b about-pts">
       <li><b>製程 × MES 雙視角</b>　懂工廠真實約束，也能寫程式把需求落地。</li>
-      <li><b>工具封裝架構</b>　把 Oracle / Informix / 設備 API 封裝成可插拔模組，降低耦合。</li>
+      <li><b>工具封裝架構</b>　把資料來源與設備介面封裝成可插拔模組，降低耦合。</li>
       <li><b>業務邏輯轉譯</b>　把工廠需求轉成清晰的任務 / 工具規格。</li>
       <li><b>跨域協作</b>　串接製造、資訊、品保與客戶稽核，銜接技術與現場。</li>
     </ul>
@@ -260,7 +260,7 @@
   <section id="skills" class="reveal" aria-labelledby="l-skills">
     <h2 class="sec-label" id="l-skills">核心技術</h2>
     <div class="skill-groups">
-      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">C#</span><span class="tag">Python</span><span class="tag">ASP.NET Core</span><span class="tag">SQL</span><span class="tag">Oracle</span><span class="tag">IBM Informix</span></div></div>
+      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">C#</span><span class="tag">Python</span><span class="tag">ASP.NET</span><span class="tag">.NET Core</span><span class="tag">SQL</span></div></div>
       <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">系統監控</span><span class="tag">日誌分析</span><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Human Review 驗收</span></div></div>
       <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span></div></div>
       <div class="skill-group"><h3>LLM / Agent（涉略）</h3><div class="tags"><span class="tag">LangChain / LangGraph（自學）</span><span class="tag">hermes（日常使用）</span><span class="tag">MCP 協定</span><span class="tag">LLM harness skills</span><span class="tag">RAG 概念</span></div></div>
@@ -275,10 +275,10 @@
       <div class="tl-item">
         <div class="tl-top"><div><span class="tl-title">MES IT 工程師</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2024/04 – 至今</div></div>
         <ul class="b">
-          <li><b>MES 重構</b>　晶圓凸塊 MES 以 C# / ASP.NET Core 標準化 API，整合 Oracle、Informix 與設備介面。</li>
-          <li><b>工具模組化</b>　把資料來源與設備呼叫封裝成可獨立替換的模組，降低耦合、利於維護。</li>
+          <li><b>MES 實作</b>　以 C# / .NET Core API 開發晶圓凸塊生產管控 API 專案，串接資料來源與設備介面。</li>
+          <li><b>模組化設計</b>　把資料讀寫與外部系統呼叫拆成獨立模組，方便維護與替換。</li>
           <li><b>批次優化</b>　監控查詢頻率與延遲，改批次處理減少來回次數，提升吞吐量。</li>
-          <li><b>異常降級</b>　設計 retry → 人工確認 → 交接紀錄，避免作業卡死在錯誤循環。</li>
+          <li><b>異常處理</b>　設計 retry → 人工確認 → 交接紀錄，避免作業卡死在錯誤循環。</li>
         </ul>
       </div>
       <div class="tl-item">
@@ -297,7 +297,7 @@
     <h2 class="sec-label" id="l-proj">專案亮點</h2>
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 295 萬元。</p></div>
-      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控重構（實戰）</h3><p>Oracle / Informix / 設備 API 各自封裝為可獨立替換模組；建立批次查詢與明確的異常降級路徑，提升可維護性。</p></div>
+      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>以 .NET Core API 開發生產管控 API 專案；資料存取與外部呼叫拆分為獨立模組；建立批次查詢與明確的異常處理路徑，提升可維護性。</p></div>
       <div class="card"><div class="yr">自學</div><h3>LLM Agent 練習（涉略）</h3><p>以 LangChain / LangGraph 自學建 RAG Pipeline；日常使用 hermes（LLM Agent 框架）並為其編寫 skills；研讀 MCP 協定與 LLM harness 工具編排，理解 Context 膨脹與 Error Fallback 等挑戰。</p></div>
     </div>
   </section>
