@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="陳昱齊 Yu-Chi Chen — AI Agent Systems Engineer。9 年半導體實戰（製程 + MES IT），陽明交大資科碩專班在學；製程 × MES × LLM 跨域整合。">
 <title>陳昱齊 · AI Agent Systems Engineer</title>
 <style>
   :root{
@@ -17,18 +18,41 @@
     --radius:0;
     --ease:cubic-bezier(.4,0,.2,1);
     --maxw:1080px;
+    --nav-h:58px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 10px);}
   body{
     margin:0;background:var(--paper);color:var(--ink);
     font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans TC",system-ui,sans-serif;
     line-height:1.65;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1;
   }
 
-  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:50;transition:width .08s linear;}
+  /* Skip link — keyboard / screen-reader first stop */
+  .skip{position:absolute;left:-9999px;top:0;background:var(--teal);color:#fff;padding:10px 16px;z-index:100;letter-spacing:.04em;}
+  .skip:focus{left:12px;top:calc(var(--nav-h) + 8px);outline:2px solid var(--gold);}
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:72px 48px 96px;}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:60;transition:width .08s linear;}
+
+  /* STICKY NAV */
+  nav.topnav{
+    position:fixed;top:3px;left:0;right:0;height:var(--nav-h);z-index:50;
+    background:rgba(250,248,244,.92);backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:2px solid var(--line);
+    display:flex;align-items:center;gap:4px;
+    padding:0 18px;
+  }
+  .topnav .brand{font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:auto;font-size:14px;white-space:nowrap;}
+  .topnav .brand b{color:var(--teal);}
+  .topnav a{
+    text-decoration:none;color:var(--muted);font-size:12.5px;letter-spacing:.02em;
+    padding:8px 11px;border-bottom:2px solid transparent;transition:color .2s var(--ease),border-color .2s var(--ease);white-space:nowrap;
+  }
+  .topnav a:hover{color:var(--ink);}
+  .topnav a.active{color:var(--teal);border-bottom-color:var(--gold);font-weight:600;}
+  .topnav .nav-toggle{display:none;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:calc(var(--nav-h) + 54px) 48px 96px;}
 
   /* HERO */
   .hero{display:flex;gap:36px;align-items:center;flex-wrap:wrap;}
@@ -54,7 +78,7 @@
   .chip .ic{color:var(--teal);font-weight:700;}
   .chip:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 6px 18px rgba(200,155,60,.18);}
 
-  section{margin-top:64px;}
+  section{margin-top:64px;scroll-margin-top:calc(var(--nav-h) + 18px);}
   .sec-label{
     display:flex;align-items:center;gap:14px;margin:0 0 26px;
     text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;color:var(--teal);
@@ -80,7 +104,7 @@
 
   .timeline{position:relative;margin-left:14px;padding-left:30px;}
   .timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--line);}
-  .tl-item{position:relative;margin-bottom:34px;}
+  .tl-item{position:relative;margin-bottom:34px;page-break-inside:avoid;}
   .tl-item::before{
     content:"";position:absolute;left:-37px;top:5px;width:13px;height:13px;background:var(--paper);
     border:2px solid var(--gold);transform:rotate(45deg);transition:background .3s var(--ease);
@@ -98,7 +122,7 @@
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
   .card{
     position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px 20px 24px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);
+    padding:22px 20px 24px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);page-break-inside:avoid;
   }
   .card::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
   .card:hover{transform:translateY(-6px);border-color:var(--gold-soft);box-shadow:0 14px 34px rgba(33,28,22,.10);}
@@ -108,59 +132,107 @@
   .card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
 
   .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .why .w{position:relative;padding:20px 18px 20px 56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .25s var(--ease),transform .25s var(--ease);}
+  .why .w{position:relative;padding:20px 18px 20px 56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .25s var(--ease),transform .25s var(--ease);page-break-inside:avoid;}
   .why .w:hover{border-color:var(--teal);transform:translateY(-3px);}
   .why .w .n{position:absolute;left:16px;top:18px;font-size:22px;font-weight:700;color:var(--gold-soft);font-feature-settings:"tnum";}
   .why .w h4{margin:0 0 6px;font-size:14px;color:var(--ink);}
   .why .w p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6;}
 
   .edu{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-  .edu .e{padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--radius);}
+  .edu .e{padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--radius);page-break-inside:avoid;}
   .edu .e .d{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);font-weight:700;}
   .edu .e .s{margin:6px 0 4px;font-weight:700;font-size:15px;}
   .edu .e .c{font-size:12.5px;color:var(--muted);}
 
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .contact-card{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px;transition:border-color .25s var(--ease),transform .25s var(--ease);
+  }
+  .contact-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .contact-card .k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;margin:0 0 8px;}
+  .contact-card .v{font-size:15px;font-weight:600;color:var(--ink);margin:0;word-break:break-word;}
+  .contact-card a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold-soft);transition:color .2s var(--ease);}
+  .contact-card a:hover{color:var(--teal);}
+
   footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);letter-spacing:.04em;text-align:center;}
 
   @media (max-width:860px){
-    .wrap{padding:52px 22px 72px;}
+    .wrap{padding:calc(var(--nav-h) + 40px) 22px 72px;}
     .name{font-size:36px;}
-    .skill-groups,.cards,.why,.edu{grid-template-columns:1fr;}
+    .skill-groups,.cards,.why,.edu,.contact-grid{grid-template-columns:1fr;}
+    .topnav .brand{font-size:13px;}
+    .topnav a{padding:8px 7px;font-size:11.5px;}
   }
+
   @media (prefers-reduced-motion:reduce){
     *{animation:none!important;}
     .reveal{opacity:1;transform:none;transition:none;}
     html{scroll-behavior:auto;}
   }
+
+  /* ===== PRINT / ATS-FRIENDLY ===== */
+  @media print{
+    :root{--paper:#fff;}
+    html{scroll-behavior:auto;scroll-padding-top:0;}
+    #progress,.skip,.topnav{display:none!important;}
+    body{background:#fff;color:#000;}
+    .wrap{max-width:none;padding:0 14mm;margin:0;}
+    section{margin-top:22px;page-break-inside:avoid;}
+    .mono{animation:none;}
+    .reveal{opacity:1!important;transform:none!important;}
+    .chip,.card,.why .w,.edu .e,.contact-card{box-shadow:none;border-color:#bbb;}
+    .card::before,.sec-label::after{display:none;}
+    .sec-label{color:#000;}
+    .sec-label::before{background:#000;}
+    ul.b li b,.lead .hl,.tl-dates,.card .yr,.edu .e .d,.contact-card .k{color:#000;}
+    a{color:#000;text-decoration:underline;}
+    footer{border-color:#bbb;}
+    @page{margin:14mm;}
+  }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">跳至主要內容</a>
 <div id="progress"></div>
-<div class="wrap">
+
+<nav class="topnav" aria-label="主要導覽">
+  <span class="brand">陳昱齊 <b>·</b> Resume</span>
+  <a href="#about">個人定位</a>
+  <a href="#skills">核心技術</a>
+  <a href="#exp">工作經歷</a>
+  <a href="#projects">專案亮點</a>
+  <a href="#edu">學歷</a>
+  <a href="#why">為什麼選我</a>
+  <a href="#contact">聯絡</a>
+</nav>
+
+<div class="wrap" id="main">
 
   <!-- HERO -->
   <header class="hero reveal">
-    <div class="mono"><span>YC</span></div>
+    <div class="mono" aria-hidden="true"><span>YC</span></div>
     <div class="hero-text">
       <h1 class="name">陳昱齊　Yu-Chi Chen</h1>
       <p class="role">AI Agent Systems Engineer　｜　製程 × MES × LLM 跨域整合</p>
       <div class="chips">
-        <span class="chip"><span class="ic">✉</span>chyi6295@gmail.com</span>
-        <span class="chip"><span class="ic">☎</span>0986-989798</span>
-        <span class="chip"><span class="ic">✎</span>國立陽明交通大學 資訊碩士專班（在學）</span>
+        <span class="chip"><span class="ic" aria-hidden="true">✉</span>chyi6295@gmail.com</span>
+        <span class="chip"><span class="ic" aria-hidden="true">☎</span>0986-989798</span>
+        <span class="chip"><span class="ic" aria-hidden="true">✎</span>國立陽明交通大學 資訊碩士專班（在學）</span>
       </div>
     </div>
   </header>
 
   <!-- 個人定位 -->
-  <section class="reveal">
-    <h2 class="sec-label">個人定位</h2>
+  <section id="about" class="reveal" aria-labelledby="l-about">
+    <h2 class="sec-label" id="l-about">個人定位</h2>
     <p class="lead">9 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。業餘<span class="hl">自學涉略</span> LangChain / LangGraph、RAG 與 MCP 等 Agent 技術，理解其 Tool / Orchestration / Memory 設計理念與常見模式；尚無 LLM 實做落地經驗。核心優勢在於 8 年製造業業務邏輯，能將工廠需求轉譯為清晰的 Agent Task / Tool 規格。</p>
   </section>
 
   <!-- 核心技術 -->
-  <section class="reveal">
-    <h2 class="sec-label">核心技術</h2>
+  <section id="skills" class="reveal" aria-labelledby="l-skills">
+    <h2 class="sec-label" id="l-skills">核心技術</h2>
     <div class="skill-groups">
       <div class="skill-group"><h3>製造 / MES 實戰</h3><div class="tags"><span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">Oracle</span><span class="tag">IBM Informix</span><span class="tag">SQL 優化</span><span class="tag">ETL 設計</span><span class="tag">工具封裝架構</span></div></div>
       <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">系統監控</span><span class="tag">日誌分析</span><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Human Review 驗收</span></div></div>
@@ -171,8 +243,8 @@
   </section>
 
   <!-- 工作經歷 -->
-  <section class="reveal">
-    <h2 class="sec-label">工作經歷</h2>
+  <section id="exp" class="reveal" aria-labelledby="l-exp">
+    <h2 class="sec-label" id="l-exp">工作經歷</h2>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-top"><div><span class="tl-title">MES IT 工程師</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2024/04 – 至今</div></div>
@@ -195,8 +267,8 @@
   </section>
 
   <!-- 專案亮點 -->
-  <section class="reveal">
-    <h2 class="sec-label">專案亮點</h2>
+  <section id="projects" class="reveal" aria-labelledby="l-proj">
+    <h2 class="sec-label" id="l-proj">專案亮點</h2>
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 295 萬元。</p></div>
       <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控重構（實戰）</h3><p>Oracle/Informix/設備 API 各自封裝為熱插拔工具模組；動態 Context 組裝；State 持久化；明確 Fallback 降級路徑。</p></div>
@@ -205,8 +277,8 @@
   </section>
 
   <!-- 學歷 -->
-  <section class="reveal">
-    <h2 class="sec-label">學歷</h2>
+  <section id="edu" class="reveal" aria-labelledby="l-edu">
+    <h2 class="sec-label" id="l-edu">學歷</h2>
     <div class="edu">
       <div class="e"><div class="d">碩士（在學）</div><div class="s">國立陽明交通大學 資訊科學碩士專班</div><div class="c">2024 – 預計 2026　｜　LLM × RAG 製造業良率預測與異常告警（研究）</div></div>
       <div class="e"><div class="d">學士</div><div class="s">國立中正大學 物理學系</div><div class="c">2011 – 2015　｜　系統化建模與實驗驗證方法論</div></div>
@@ -214,8 +286,8 @@
   </section>
 
   <!-- 為什麼選我 -->
-  <section class="reveal">
-    <h2 class="sec-label">為什麼選我</h2>
+  <section id="why" class="reveal" aria-labelledby="l-why">
+    <h2 class="sec-label" id="l-why">為什麼選我</h2>
     <div class="why">
       <div class="w"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API/DB 整合，能快速設計標準化 Tool Server 架構。</p></div>
       <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束，設計出的 Agent 邊界可落地。</p></div>
@@ -226,13 +298,48 @@
     </div>
   </section>
 
-  <footer>陳昱齊 · AI Agent Systems Engineer　｜　本頁 self-contained，零外部資源</footer>
+  <!-- 聯絡 -->
+  <section id="contact" class="reveal" aria-labelledby="l-contact">
+    <h2 class="sec-label" id="l-contact">聯絡方式</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p class="k">Email</p>
+        <p class="v"><a href="mailto:chyi6295@gmail.com">chyi6295@gmail.com</a></p>
+      </div>
+      <div class="contact-card">
+        <p class="k">電話</p>
+        <p class="v"><a href="tel:0986989798">0986-989798</a></p>
+      </div>
+      <div class="contact-card">
+        <p class="k">在學</p>
+        <p class="v">國立陽明交通大學 資訊碩士專班</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>陳昱齊 · AI Agent Systems Engineer　｜　本頁 self-contained，零外部資源　｜　列印即 ATS 友好版</footer>
 </div>
 
 <script>
   var bar=document.getElementById('progress');
   function onScroll(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Active nav state via IntersectionObserver on sections
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  var byId={};navLinks.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a;});
+  var secObserver=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        navLinks.forEach(function(a){a.classList.remove('active');a.removeAttribute('aria-current');});
+        var a=byId[e.target.id];
+        if(a){a.classList.add('active');a.setAttribute('aria-current','true');}
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  document.querySelectorAll('section[id]').forEach(function(s){secObserver.observe(s);});
+
+  // Reveal on scroll
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 </script>
