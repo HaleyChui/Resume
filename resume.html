@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="陳昱齊 Yu-Chi Chen — AI Agent Systems Engineer。9 年半導體實戰（製程 + MES IT），陽明交大資科碩專班在學；製程 × MES × LLM 跨域整合。">
-<title>陳昱齊 · AI Agent Systems Engineer</title>
+<meta name="description" content="陳昱齊 Yu-Chi Chen — MES IT。9 年半導體實戰（製程 + MES IT），陽明交大資科碩專班在學；製程 × MES × 跨領域整合。">
+<title>陳昱齊 · MES IT</title>
 <style>
   :root{
     --paper:#faf8f4;
@@ -91,6 +91,7 @@
 
   .lead{margin:0;color:var(--ink);max-width:70ch;}
   .lead .hl{color:var(--teal);font-weight:600;}
+  .about-pts{margin-top:16px;}
 
   .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
   .skill-group h3{margin:0 0 12px;font-size:14px;color:var(--teal2);letter-spacing:.04em;font-weight:700;}
@@ -215,7 +216,7 @@
     <div class="mono" aria-hidden="true"><span>YC</span></div>
     <div class="hero-text">
       <h1 class="name">陳昱齊　Yu-Chi Chen</h1>
-      <p class="role">AI Agent Systems Engineer　｜　製程 × MES × LLM 跨域整合</p>
+      <p class="role">MES IT　｜　製程 × MES × 跨領域整合</p>
       <div class="chips">
         <span class="chip"><span class="ic" aria-hidden="true">✉</span>chyi6295@gmail.com</span>
         <span class="chip"><span class="ic" aria-hidden="true">☎</span>0986-989798</span>
@@ -227,17 +228,23 @@
   <!-- 個人定位 -->
   <section id="about" class="reveal" aria-labelledby="l-about">
     <h2 class="sec-label" id="l-about">個人定位</h2>
-    <p class="lead">9 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。業餘<span class="hl">自學涉略</span> LangChain / LangGraph、RAG 與 MCP 等 Agent 技術，理解其 Tool / Orchestration / Memory 設計理念與常見模式；尚無 LLM 實做落地經驗。核心優勢在於 8 年製造業業務邏輯，能將工廠需求轉譯為清晰的 Agent Task / Tool 規格。</p>
+        <p class="lead">9 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。<br>以「<span class="hl">跨領域整合</span>」為核心定位：</p>
+    <ul class="b about-pts">
+      <li><b>製程 × MES 雙視角</b>　懂工廠真實約束，也能寫程式把需求落地。</li>
+      <li><b>工具封裝架構</b>　把 Oracle / Informix / 設備 API 封裝成可插拔模組，降低耦合。</li>
+      <li><b>業務邏輯轉譯</b>　把工廠需求轉成清晰的任務 / 工具規格。</li>
+      <li><b>跨域協作</b>　串接製造、資訊、品保與客戶稽核，銜接技術與現場。</li>
+    </ul>
   </section>
 
   <!-- 核心技術 -->
   <section id="skills" class="reveal" aria-labelledby="l-skills">
     <h2 class="sec-label" id="l-skills">核心技術</h2>
     <div class="skill-groups">
-      <div class="skill-group"><h3>製造 / MES 實戰</h3><div class="tags"><span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">Oracle</span><span class="tag">IBM Informix</span><span class="tag">SQL 優化</span><span class="tag">ETL 設計</span><span class="tag">工具封裝架構</span></div></div>
+      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">C#</span><span class="tag">Python</span><span class="tag">ASP.NET Core</span><span class="tag">SQL</span><span class="tag">Oracle</span><span class="tag">IBM Informix</span></div></div>
       <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">系統監控</span><span class="tag">日誌分析</span><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Human Review 驗收</span></div></div>
-      <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span></div></div>
-      <div class="skill-group"><h3>LLM / Agent（涉略）</h3><div class="tags"><span class="tag">LangChain / LangGraph（自學）</span><span class="tag">RAG 概念</span><span class="tag">MCP 協定</span><span class="tag">ChromaDB</span><span class="tag">Prompt Engineering</span><span class="tag">Prefix Cache 概念</span></div></div>
+      <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span><span class="tag">LLM Agent 知識（自學）</span><span class="tag">hermes / MCP</span></div></div>
+      <div class="skill-group"><h3>LLM / Agent（涉略）</h3><div class="tags"><span class="tag">hermes（日常使用）</span><span class="tag">MCP 協定</span><span class="tag">LLM harness skills</span><span class="tag">RAG 概念</span><span class="tag">Prefix Cache 概念</span></div></div>
     </div>
     <p class="skill-note">註：LLM / Agent 相關為自學與概念研讀，非實務落地經驗；製造 / MES 與工程實踐為本職實戰。</p>
   </section>
@@ -249,18 +256,18 @@
       <div class="tl-item">
         <div class="tl-top"><div><span class="tl-title">MES IT 工程師</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2024/04 – 至今</div></div>
         <ul class="b">
-          <li><b>工具封裝</b>　晶圓凸塊 MES 重構：C#/ASP.NET Core 標準化 API，將 Oracle/Informix/設備 API 封裝為可插拔 Tool 模組（設計思路與 MCP Tool Server 一致）。</li>
-          <li><b>動態 Context</b>　ETL 依任務注入業務邏輯，Progressive Disclosure 等同 RAG Retrieval 原則。</li>
-          <li><b>State + Fallback</b>　跨步驟持久化；異常走 retry → 人工 → Handoff Artifact，避免無效循環。</li>
-          <li><b>可觀測性</b>　監控工具呼叫頻率/延遲，優先批次查詢降 Round-trip。</li>
+          <li><b>MES 重構</b>　晶圓凸塊 MES 以 C# / ASP.NET Core 標準化 API，整合 Oracle、Informix 與設備介面。</li>
+          <li><b>工具模組化</b>　把資料來源與設備呼叫封裝成可獨立替換的模組，降低耦合、利於維護。</li>
+          <li><b>批次優化</b>　監控查詢頻率與延遲，改批次處理減少來回次數，提升吞吐量。</li>
+          <li><b>異常降級</b>　設計 retry → 人工確認 → 交接紀錄，避免作業卡死在錯誤循環。</li>
         </ul>
       </div>
       <div class="tl-item">
         <div class="tl-top"><div><span class="tl-title">製程工程師（晶圓測試）</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2017/04 – 2024/03</div></div>
         <ul class="b">
-          <li><b>Probe Mark AI</b>　CV(Tool)→分析→Human Review，Automated Check 對抗 Non-determinism，年省 295 萬元。</li>
-          <li><b>多步驟推理</b>　50+ 場 FMEA，對應 Agent Multi-step Reasoning。</li>
-          <li><b>跨域稽核</b>　20+ 製程專案；Apple/Intel/BOSCH 等 10+ 次國際稽核，熟悉 AI 系統驗收標準。</li>
+          <li><b>Probe Mark AI</b>　主導導入 CV 模型 → 影像 API → SOP 判讀 → 人工複核，自動化檢查對抗影像不一致，年省 295 萬元。</li>
+          <li><b>FMEA 風險分析</b>　主導 50+ 場潛在失效分析，建立標準作業與防呆機制。</li>
+          <li><b>國際客戶稽核</b>　參與 Apple / Intel / BOSCH 等 10+ 次稽核，熟悉製造業品質與驗收體系。</li>
         </ul>
       </div>
     </div>
@@ -271,8 +278,8 @@
     <h2 class="sec-label" id="l-proj">專案亮點</h2>
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 295 萬元。</p></div>
-      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控重構（實戰）</h3><p>Oracle/Informix/設備 API 各自封裝為熱插拔工具模組；動態 Context 組裝；State 持久化；明確 Fallback 降級路徑。</p></div>
-      <div class="card"><div class="yr">自學</div><h3>LangChain Agent 練習（涉略）</h3><p>業餘自學練習：以 LangChain 建 RAG Pipeline、試驗 Chunking 與 Prefix Cache 對成本的影響；研讀 Multi-Agent / MCP 設計模式，理解 Context 膨脹與 Error Fallback 等常見挑戰。</p></div>
+      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控重構（實戰）</h3><p>Oracle / Informix / 設備 API 各自封裝為可獨立替換模組；建立批次查詢與明確的異常降級路徑，提升可維護性。</p></div>
+      <div class="card"><div class="yr">自學</div><h3>hermes / MCP Agent 練習（涉略）</h3><p>日常使用 hermes（LLM Agent 框架）並為其編寫 skills；研讀 MCP 協定與 LLM harness 工具編排、上下文管理，理解 Context 膨脹與 Error Fallback 等常見挑戰。</p></div>
     </div>
   </section>
 
@@ -293,7 +300,7 @@
       <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束，設計出的 Agent 邊界可落地。</p></div>
       <div class="w"><span class="n">03</span><h4>業務邏輯轉譯</h4><p>跨越「技術可行」與「業務真正需要」的鴻溝。</p></div>
       <div class="w"><span class="n">04</span><h4>AI 落地驗收經驗</h4><p>主導影像辨識需求→驗收→上線，熟悉企業場景控管。</p></div>
-      <div class="w"><span class="n">05</span><h4>LLM 概念涉略</h4><p>自學 LangChain / RAG / MCP，能與工程團隊對齊設計語言。</p></div>
+      <div class="w"><span class="n">05</span><h4>LLM / Agent 涉略</h4><p>日常使用 hermes，自學 MCP / RAG，能與工程團隊對齊設計語言。</p></div>
       <div class="w"><span class="n">06</span><h4>嚴謹工程素養</h4><p>Fallback / 日誌 / Human Review，把不確定性當成設計項。</p></div>
     </div>
   </section>
@@ -317,7 +324,7 @@
     </div>
   </section>
 
-  <footer>陳昱齊 · AI Agent Systems Engineer　｜　本頁 self-contained，零外部資源　｜　列印即 ATS 友好版</footer>
+  <footer>陳昱齊 · MES IT　｜　本頁 self-contained，零外部資源　｜　列印即 ATS 友好版</footer>
 </div>
 
 <script>
