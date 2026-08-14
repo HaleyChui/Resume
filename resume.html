@@ -167,18 +167,10 @@
   .card h3{margin:8px 0 10px;font-size:15.5px;line-height:1.35;}
   .card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
 
-  .why{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(96px,auto);gap:16px;}
-  .why .w.feature{grid-column:span 3;grid-row:span 2;justify-content:center;background:linear-gradient(135deg,var(--c-primary),var(--c-primary-2));border-color:transparent;}
-  .why .w.feature .n,.why .w.feature h4,.why .w.feature p{color:#fff;}
-  .why .w.feature h4{font-size:22px;}
-  .why .w.feature p{font-size:14px;opacity:.92;}
-  .why .w.feature .n{font-size:34px;color:var(--c-accent-soft);}
-  .why .w{grid-column:span 3;}
-  @media(min-width:720px){.why .w:not(.feature){grid-column:span 3;}}
-  @media(max-width:560px){.why{grid-template-columns:1fr;}.why .w,.why .w.feature{grid-column:span 1;grid-row:auto;}}
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .why .w{position:relative;padding:20px 18px 20px 56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .25s var(--ease),transform .25s var(--ease);page-break-inside:avoid;}
   .why .w:hover{border-color:var(--teal);transform:translateY(-3px);}
-  .why .w.feature:hover{border-color:transparent;}
+  @media(max-width:560px){.why{grid-template-columns:1fr;}}
   .why .w .n{position:absolute;left:16px;top:18px;font-size:22px;font-weight:700;color:var(--gold-soft);font-feature-settings:"tnum";}
   .why .w h4{margin:0 0 6px;font-size:14px;color:var(--ink);}
   .why .w p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6;}
@@ -246,8 +238,7 @@
     .card::before,.sec-label::after{display:none;}
     .sec-label{color:#000;}
     .sec-label .num{color:#000;border-color:#bbb;}
-    .why .w.feature{background:#fff!important;border:1px solid #bbb!important;}
-    .why .w.feature .n,.why .w.feature h4,.why .w.feature p{color:#000!important;}
+
     .sec-label::before{background:#000;}
     ul.b li b,.lead .hl,.tl-dates,.card .yr,.edu .e .d,.contact-card .k{color:#000;}
     a{color:#000;text-decoration:underline;}
@@ -361,7 +352,7 @@
   <section id="why" class="reveal" aria-labelledby="l-why">
     <h2 class="sec-label" id="l-why"><span class="num">06</span>為什麼選我</h2>
     <div class="why">
-      <div class="w feature"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>能快速設計標準化模組架構</p></div>
+      <div class="w"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>能快速設計標準化模組架構</p></div>
       <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束<br>設計出的系統能真正落地</p></div>
       <div class="w"><span class="n">03</span><h4>業務邏輯轉譯</h4><p>跨越技術與需求鴻溝<br>把現場需要轉成清晰規格</p></div>
       <div class="w"><span class="n">04</span><h4>AI 落地驗收經驗</h4><p>主導影像辨識上線<br>熟悉企業場景控管</p></div>
