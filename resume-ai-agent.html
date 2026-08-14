@@ -302,7 +302,7 @@
       <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Observability / Trace</span><span class="tag">Human Review 验收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
       <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span></div></div>
     </div>
-    <p class="skill-note">註：LLM / Agent 為自學與個人專案實作（含 RAG / tool use / 編排練習）；製造 / MES 與工程實踐為本職實戰。</p>
+    <p class="skill-note">註：LLM / Agent 為自學與個人專案實作（含本地 MiniGPT 訓練 + LangGraph Agent 編排 / RAG / Tool Use / eval）；製造 / MES 與工程實踐為本職實戰。</p>
   </section>
 
   <!-- 工作經歷 -->
@@ -335,7 +335,7 @@
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 <span class="count" data-to="295">0</span> 萬元。</p></div>
       <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>以 .NET Core API 開發生產管控 API 專案；資料存取與外部呼叫拆分為獨立模組；建立批次查詢與明確的異常處理路徑，提升可維護性。</p></div>
-      <div class="card"><div class="yr">實作中</div><h3>LLM Agent 專案（自學實作）</h3><p>以 LangGraph 編排 multi-tool agent；用 hermes / MCP 接外部 tool；RAG over 內部 SOP（pgvector / FAISS）；自寫 eval 與 trace log，練習 Error Fallback 與 Human Review。</p></div>
+      <div class="card"><div class="yr">2026</div><h3>本地 LLM Agent 專案（實作）</h3><p>從零手寫 MiniGPT 訓練（理解 attention / backprop）；上層用 LangGraph 編排 multi-tool Agent + 本地 Qwen q4 模型 + RAG（faiss，不用 ChromaDB）+ 自寫 eval。含 Tool Use / Human Review / Error Fallback。程式庫：<a href="https://github.com/HaleyChui/mini-llm-agent">mini-llm-agent</a></p></div>
     </div>
   </section>
 
