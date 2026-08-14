@@ -19,6 +19,16 @@
     --ease:cubic-bezier(.4,0,.2,1);
     --maxw:1080px;
     --nav-h:58px;
+    /* daisyui-inspired semantic tokens (local, zero-external) */
+    --c-base:#faf8f4;
+    --c-ink:#211c16;
+    --c-muted:#6f675b;
+    --c-line:#e4ded3;
+    --c-surface:#fff;
+    --c-accent:#c89b3c;
+    --c-primary:#0f766e;
+    --c-primary-2:#0e7490;
+    --c-accent-soft:#e7d3a0;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 10px);}
@@ -73,6 +83,8 @@
   @keyframes diamondIn{from{opacity:0;transform:rotate(45deg) scale(.2);}to{opacity:1;transform:rotate(45deg) scale(1);}}
 
   .hero-text{flex:1 1 360px;min-width:280px;}
+  .role{margin:10px 0 0;font-size:16px;color:var(--c-muted);letter-spacing:.03em;}
+  .role .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--c-accent);font-weight:700;margin-bottom:6px;}
   .name{font-size:46px;line-height:1.05;font-weight:700;letter-spacing:.01em;margin:0;
     background:linear-gradient(90deg,var(--ink),var(--gold),var(--teal),var(--gold),var(--ink));background-size:300% 100%;
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
@@ -97,8 +109,10 @@
   section{margin-top:64px;scroll-margin-top:calc(var(--nav-h) + 18px);}
   .sec-label{
     display:flex;align-items:center;gap:14px;margin:0 0 26px;
-    text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;color:var(--teal);
+    text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;color:var(--c-primary);
   }
+  .sec-label .num{font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--c-accent);
+    border:1px solid var(--c-line);padding:2px 8px;background:var(--c-surface);}
   .sec-label::before{content:"";width:11px;height:11px;background:var(--gold);display:inline-block;transform:rotate(45deg);}
   .sec-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
 
@@ -153,9 +167,18 @@
   .card h3{margin:8px 0 10px;font-size:15.5px;line-height:1.35;}
   .card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
 
-  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .why{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(96px,auto);gap:16px;}
+  .why .w.feature{grid-column:span 3;grid-row:span 2;justify-content:center;background:linear-gradient(135deg,var(--c-primary),var(--c-primary-2));border-color:transparent;}
+  .why .w.feature .n,.why .w.feature h4,.why .w.feature p{color:#fff;}
+  .why .w.feature h4{font-size:22px;}
+  .why .w.feature p{font-size:14px;opacity:.92;}
+  .why .w.feature .n{font-size:34px;color:var(--c-accent-soft);}
+  .why .w{grid-column:span 3;}
+  @media(min-width:720px){.why .w:not(.feature){grid-column:span 3;}}
+  @media(max-width:560px){.why{grid-template-columns:1fr;}.why .w,.why .w.feature{grid-column:span 1;grid-row:auto;}}
   .why .w{position:relative;padding:20px 18px 20px 56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .25s var(--ease),transform .25s var(--ease);page-break-inside:avoid;}
   .why .w:hover{border-color:var(--teal);transform:translateY(-3px);}
+  .why .w.feature:hover{border-color:transparent;}
   .why .w .n{position:absolute;left:16px;top:18px;font-size:22px;font-weight:700;color:var(--gold-soft);font-feature-settings:"tnum";}
   .why .w h4{margin:0 0 6px;font-size:14px;color:var(--ink);}
   .why .w p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6;}
@@ -222,6 +245,9 @@
     .chip,.card,.why .w,.edu .e,.contact-card{box-shadow:none;border-color:#bbb;}
     .card::before,.sec-label::after{display:none;}
     .sec-label{color:#000;}
+    .sec-label .num{color:#000;border-color:#bbb;}
+    .why .w.feature{background:#fff!important;border:1px solid #bbb!important;}
+    .why .w.feature .n,.why .w.feature h4,.why .w.feature p{color:#000!important;}
     .sec-label::before{background:#000;}
     ul.b li b,.lead .hl,.tl-dates,.card .yr,.edu .e .d,.contact-card .k{color:#000;}
     a{color:#000;text-decoration:underline;}
@@ -255,7 +281,7 @@
     <div class="mono" aria-hidden="true"><span>Haley</span></div>
     <div class="hero-text">
       <h1 class="name">陳昱齊　YU CHI CHEN</h1>
-      <p class="role">MES IT　｜　製程 × MES × 跨領域整合</p>
+      <p class="role"><span class="eyebrow">Position</span><br>MES IT　｜　製程 × MES × 跨領域整合</p>
       <div class="chips">
         <span class="chip"><span class="ic" aria-hidden="true">✉</span>chyi6295@gmail.com</span>
         <span class="chip"><span class="ic" aria-hidden="true">☎</span>0986-989798</span>
@@ -266,7 +292,7 @@
 
   <!-- 個人定位 -->
   <section id="about" class="reveal" aria-labelledby="l-about">
-    <h2 class="sec-label" id="l-about">個人定位</h2>
+    <h2 class="sec-label" id="l-about"><span class="num">01</span>個人定位</h2>
         <p class="lead"><span class="count" data-to="9">0</span> 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。<br>以「<span class="hl">跨領域整合</span>」為核心定位：</p>
     <ul class="b about-pts">
       <li><b>製程 × MES 雙視角</b>　懂工廠真實約束，也能寫程式把需求落地。</li>
@@ -278,7 +304,7 @@
 
   <!-- 核心技術 -->
   <section id="skills" class="reveal" aria-labelledby="l-skills">
-    <h2 class="sec-label" id="l-skills">核心技術</h2>
+    <h2 class="sec-label" id="l-skills"><span class="num">02</span>核心技術</h2>
     <div class="skill-groups">
       <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">C#</span><span class="tag">Python</span><span class="tag">ASP.NET</span><span class="tag">.NET Core</span><span class="tag">SQL</span></div></div>
       <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">系統監控</span><span class="tag">日誌分析</span><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Human Review 驗收</span></div></div>
@@ -290,7 +316,7 @@
 
   <!-- 工作經歷 -->
   <section id="exp" class="reveal" aria-labelledby="l-exp">
-    <h2 class="sec-label" id="l-exp">工作經歷</h2>
+    <h2 class="sec-label" id="l-exp"><span class="num">03</span>工作經歷</h2>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-top"><div><span class="tl-title">MES IT 工程師</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2024/04 – 至今</div></div>
@@ -314,7 +340,7 @@
 
   <!-- 專案亮點 -->
   <section id="projects" class="reveal" aria-labelledby="l-proj">
-    <h2 class="sec-label" id="l-proj">專案亮點</h2>
+    <h2 class="sec-label" id="l-proj"><span class="num">04</span>專案亮點</h2>
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 <span class="count" data-to="295">0</span> 萬元。</p></div>
       <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>以 .NET Core API 開發生產管控 API 專案；資料存取與外部呼叫拆分為獨立模組；建立批次查詢與明確的異常處理路徑，提升可維護性。</p></div>
@@ -324,7 +350,7 @@
 
   <!-- 學歷 -->
   <section id="edu" class="reveal" aria-labelledby="l-edu">
-    <h2 class="sec-label" id="l-edu">學歷</h2>
+    <h2 class="sec-label" id="l-edu"><span class="num">05</span>學歷</h2>
     <div class="edu">
       <div class="e"><div class="d">碩士（在學）</div><div class="s">國立陽明交通大學 資訊科學碩士專班</div><div class="c">2024 – 預計 2026　｜　LLM × RAG 製造業良率預測與異常告警（研究）</div></div>
       <div class="e"><div class="d">學士</div><div class="s">國立中正大學 物理學系</div><div class="c">2011 – 2015　｜　系統化建模與實驗驗證方法論</div></div>
@@ -333,9 +359,9 @@
 
   <!-- 為什麼選我 -->
   <section id="why" class="reveal" aria-labelledby="l-why">
-    <h2 class="sec-label" id="l-why">為什麼選我</h2>
+    <h2 class="sec-label" id="l-why"><span class="num">06</span>為什麼選我</h2>
     <div class="why">
-      <div class="w"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>能快速設計標準化模組架構</p></div>
+      <div class="w feature"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>能快速設計標準化模組架構</p></div>
       <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束<br>設計出的系統能真正落地</p></div>
       <div class="w"><span class="n">03</span><h4>業務邏輯轉譯</h4><p>跨越技術與需求鴻溝<br>把現場需要轉成清晰規格</p></div>
       <div class="w"><span class="n">04</span><h4>AI 落地驗收經驗</h4><p>主導影像辨識上線<br>熟悉企業場景控管</p></div>
@@ -346,7 +372,7 @@
 
   <!-- 聯絡 -->
   <section id="contact" class="reveal" aria-labelledby="l-contact">
-    <h2 class="sec-label" id="l-contact">聯絡方式</h2>
+    <h2 class="sec-label" id="l-contact"><span class="num">07</span>聯絡方式</h2>
     <div class="contact-grid">
       <div class="contact-card">
         <p class="k">Email</p>
