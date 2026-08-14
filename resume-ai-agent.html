@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="陳昱齊 YU CHI CHEN — AI Agent 工程師（製造業背景）。9 年半導體實戰，自學 LangChain / LangGraph / hermes / MCP，具備 tool 設計與 AI 落地驗收經驗；製程 × MES × 跨領域整合。">
+<title>陳昱齊 · AI Agent 工程師</title>
+<style>
+  :root{
+    --paper:#faf8f4;
+    --ink:#211c16;
+    --muted:#6f675b;
+    --line:#e4ded3;
+    --gold:#c89b3c;
+    --gold-soft:#e7d3a0;
+    --teal:#0f766e;
+    --teal2:#0e7490;
+    --radius:0;
+    --ease:cubic-bezier(.4,0,.2,1);
+    --maxw:1080px;
+    --nav-h:58px;
+    /* daisyui-inspired semantic tokens (local, zero-external) */
+    --c-base:#faf8f4;
+    --c-ink:#211c16;
+    --c-muted:#6f675b;
+    --c-line:#e4ded3;
+    --c-surface:#fff;
+    --c-accent:#c89b3c;
+    --c-primary:#0f766e;
+    --c-primary-2:#0e7490;
+    --c-accent-soft:#e7d3a0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 10px);}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans TC",system-ui,sans-serif;
+    line-height:1.65;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1;
+  }
+
+  /* Skip link — keyboard / screen-reader first stop */
+  .skip{position:absolute;left:-9999px;top:0;background:var(--teal);color:#fff;padding:10px 16px;z-index:100;letter-spacing:.04em;}
+  .skip:focus{left:12px;top:calc(var(--nav-h) + 8px);outline:2px solid var(--gold);}
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:60;transition:width .08s linear;}
+
+  /* STICKY NAV */
+  nav.topnav{
+    position:fixed;top:3px;left:0;right:0;height:var(--nav-h);z-index:50;
+    background:rgba(250,248,244,.92);backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:2px solid var(--line);
+    display:flex;align-items:center;gap:4px;
+    padding:0 18px;
+  }
+  .topnav .brand{font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:auto;font-size:14px;white-space:nowrap;}
+  .topnav .brand b{color:var(--teal);}
+  .topnav a{
+    text-decoration:none;color:var(--muted);font-size:12.5px;letter-spacing:.02em;
+    padding:8px 11px;border-bottom:2px solid transparent;transition:color .2s var(--ease),border-color .2s var(--ease);white-space:nowrap;
+  }
+  .topnav a:hover{color:var(--ink);}
+  .topnav a.active{color:var(--teal);border-bottom-color:var(--gold);font-weight:600;}
+  .topnav .nav-toggle{display:none;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:calc(var(--nav-h) + 54px) 48px 96px;}
+
+  /* HERO */
+  .hero{display:flex;gap:36px;align-items:center;flex-wrap:wrap;position:relative;overflow:hidden;}
+  .mono{
+    --s:104px;position:relative;width:var(--s);height:var(--s);flex:0 0 auto;
+    display:grid;place-items:center;border-radius:50%;
+    background:conic-gradient(from 0deg,var(--gold),var(--teal),var(--teal2),var(--gold));
+    animation:spin 14s linear infinite, monoGlow 4s ease-in-out infinite;
+  }
+  .mono::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--paper);}
+  .mono span{position:relative;z-index:1;font-size:26px;font-weight:700;color:var(--ink);letter-spacing:.02em;animation:spin 14s linear infinite reverse;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes monoGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(200,155,60,0));}50%{filter:drop-shadow(0 0 14px rgba(200,155,60,.4));}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  @keyframes heroIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  @keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.96);}to{opacity:1;transform:none;}}
+  @keyframes diamondIn{from{opacity:0;transform:rotate(45deg) scale(.2);}to{opacity:1;transform:rotate(45deg) scale(1);}}
+
+  .hero-text{flex:1 1 360px;min-width:280px;}
+  .role{margin:10px 0 0;font-size:16px;color:var(--c-muted);letter-spacing:.03em;}
+  .role .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--c-accent);font-weight:700;margin-bottom:6px;}
+  .name{font-size:46px;line-height:1.05;font-weight:700;letter-spacing:.01em;margin:0;
+    background:linear-gradient(90deg,var(--ink),var(--gold),var(--teal),var(--gold),var(--ink));background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+    animation:nameShimmer 9s linear infinite;}
+  .role{margin:10px 0 0;font-size:16px;color:var(--muted);letter-spacing:.03em;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    font-size:13px;color:var(--ink);transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .chip .ic{color:var(--teal);font-weight:700;}
+  .chip:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 6px 18px rgba(200,155,60,.18);}
+  .hero .mono{animation:spin 14s linear infinite, monoGlow 4s ease-in-out infinite, fadeIn .8s var(--ease) both;}
+  .hero .name{animation:heroIn .7s var(--ease) both .1s;}
+  .hero .role{animation:heroIn .7s var(--ease) both .25s;}
+  .hero .chips .chip{opacity:0;animation:heroIn .6s var(--ease) both;}
+  .hero .chips .chip:nth-child(1){animation-delay:.40s;}
+  .hero .chips .chip:nth-child(2){animation-delay:.52s;}
+  .hero .chips .chip:nth-child(3){animation-delay:.64s;}
+
+  section{margin-top:64px;scroll-margin-top:calc(var(--nav-h) + 18px);}
+  .sec-label{
+    display:flex;align-items:center;gap:14px;margin:0 0 26px;
+    text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;color:var(--c-primary);
+  }
+  .sec-label .num{font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--c-accent);
+    border:1px solid var(--c-line);padding:2px 8px;background:var(--c-surface);}
+  .sec-label::before{content:"";width:11px;height:11px;background:var(--gold);display:inline-block;transform:rotate(45deg);}
+  .sec-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .reveal.is-visible{opacity:1;transform:none;}
+  .reveal.is-visible .skill-group .tag{animation:popIn .5s var(--ease) both;}
+  .reveal.is-visible .tl-item{animation:fadeUp .6s var(--ease) both;}
+  .reveal.is-visible .card{animation:fadeUp .6s var(--ease);}
+  .reveal.is-visible .why .w{animation:fadeUp .6s var(--ease);}
+  .reveal.is-visible .sec-label::before{animation:diamondIn .6s var(--ease) both;}
+
+  .lead{margin:0;color:var(--ink);max-width:70ch;}
+  .lead .hl{color:var(--teal);font-weight:600;}
+  .about-pts{margin-top:16px;}
+
+  .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .skill-group h3{margin:0 0 12px;font-size:14px;color:var(--teal2);letter-spacing:.04em;font-weight:700;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    padding:6px 12px;font-size:12.5px;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius);color:var(--ink);transition:all .22s var(--ease);cursor:default;
+  }
+  .tag:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-2px);}
+  .skill-note{margin:14px 0 0;font-size:12.5px;color:var(--muted);}
+
+  .timeline{position:relative;margin-left:14px;padding-left:30px;}
+  .timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--line);}
+  .tl-item{position:relative;margin-bottom:34px;page-break-inside:avoid;}
+  .tl-item::before{
+    content:"";position:absolute;left:-37px;top:5px;width:13px;height:13px;background:var(--paper);
+    border:2px solid var(--gold);transform:rotate(45deg);transition:background .3s var(--ease);
+  }
+  .tl-item:hover::before{background:var(--gold);}
+  .tl-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 14px;align-items:baseline;}
+  .tl-title{font-weight:700;font-size:16px;margin:0;}
+  .tl-org{color:var(--muted);font-size:14px;}
+  .tl-dates{font-size:12.5px;color:var(--teal);letter-spacing:.04em;white-space:nowrap;font-weight:600;}
+  ul.b{list-style:none;margin:12px 0 0;padding:0;}
+  ul.b li{position:relative;padding-left:18px;margin:0 0 8px;color:var(--ink);}
+  ul.b li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);}
+  ul.b li b{color:var(--teal);font-weight:600;}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px 24px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);page-break-inside:avoid;
+  }
+  .card::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold-soft);box-shadow:0 14px 34px rgba(33,28,22,.10);}
+  .card:hover::before{transform:scaleX(1);}
+  .card .yr{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card h3{margin:8px 0 10px;font-size:15.5px;line-height:1.35;}
+  .card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
+
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .why .w{position:relative;padding:20px 18px 20px 56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .25s var(--ease),transform .25s var(--ease);page-break-inside:avoid;}
+  .why .w:hover{border-color:var(--teal);transform:translateY(-3px);}
+  @media(max-width:560px){.why{grid-template-columns:1fr;}}
+  .why .w .n{position:absolute;left:16px;top:18px;font-size:22px;font-weight:700;color:var(--gold-soft);font-feature-settings:"tnum";}
+  .why .w h4{margin:0 0 6px;font-size:14px;color:var(--ink);}
+  .why .w p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+  .edu{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .edu .e{padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--radius);page-break-inside:avoid;}
+  .edu .e .d{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);font-weight:700;}
+  .edu .e .s{margin:6px 0 4px;font-weight:700;font-size:15px;}
+  .edu .e .c{font-size:12.5px;color:var(--muted);}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .contact-card{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px;transition:border-color .25s var(--ease),transform .25s var(--ease);
+  }
+  .contact-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .contact-card .k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;margin:0 0 8px;}
+  .contact-card .v{font-size:15px;font-weight:600;color:var(--ink);margin:0;word-break:break-word;}
+  .contact-card a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold-soft);transition:color .2s var(--ease);}
+  .contact-card a:hover{color:var(--teal);}
+
+
+
+  @media (max-width:860px){
+    .wrap{padding:calc(var(--nav-h) + 40px) 22px 72px;}
+    .name{font-size:36px;}
+    .skill-groups,.cards,.why,.edu,.contact-grid{grid-template-columns:1fr;}
+    .topnav .brand{font-size:13px;}
+    .topnav a{padding:8px 7px;font-size:11.5px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .hero .chips .chip{opacity:1!important;}
+    .hero .glow{display:none!important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ===== EXTRA MOTION / WOW ===== */
+  .hero .glow{position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,35%),rgba(200,155,60,.18),rgba(15,118,110,.12) 38%,transparent 70%);
+    opacity:0;transition:opacity .45s var(--ease);}
+  .hero:hover .glow{opacity:1;}
+  .hero-text,.mono{position:relative;z-index:1;}
+  @keyframes nameShimmer{to{background-position:300% 0;}}
+  .count{font-variant-numeric:tabular-nums;}
+  .timeline::before{transform:scaleY(0);transform-origin:top;transition:transform 1.1s var(--ease);}
+  .timeline.is-drawn::before{transform:scaleY(1);}
+  .cards,.why{perspective:900px;}
+  .tilt{transition:transform .2s var(--ease);will-change:transform;}
+
+  /* ===== PRINT / ATS-FRIENDLY ===== */
+  @media print{
+    :root{--paper:#fff;}
+    html{scroll-behavior:auto;scroll-padding-top:0;}
+    #progress,.skip,.topnav{display:none!important;}
+    body{background:#fff;color:#000;}
+    .wrap{max-width:none;padding:0 14mm;margin:0;}
+    section{margin-top:22px;page-break-inside:avoid;}
+    .mono{animation:none;}
+    .reveal{opacity:1!important;transform:none!important;}
+    .chip,.card,.why .w,.edu .e,.contact-card{box-shadow:none;border-color:#bbb;}
+    .card::before,.sec-label::after{display:none;}
+    .sec-label{color:#000;}
+    .sec-label .num{color:#000;border-color:#bbb;}
+
+    .sec-label::before{background:#000;}
+    ul.b li b,.lead .hl,.tl-dates,.card .yr,.edu .e .d,.contact-card .k{color:#000;}
+    a{color:#000;text-decoration:underline;}
+    .hero .glow{display:none!important;}
+    .name{color:#000!important;-webkit-text-fill-color:#000!important;background:none!important;}
+
+    @page{margin:14mm;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<div id="progress"></div>
+
+<nav class="topnav" aria-label="主要導覽">
+  <span class="brand">陳昱齊 <b>·</b> Resume</span>
+  <a href="#about">個人定位</a>
+  <a href="#skills">核心技術</a>
+  <a href="#exp">工作經歷</a>
+  <a href="#projects">專案亮點</a>
+  <a href="#edu">學歷</a>
+  <a href="#why">為什麼選我</a>
+  <a href="#contact">聯絡</a>
+</nav>
+
+<div class="wrap" id="main">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="mono" aria-hidden="true"><span>Haley</span></div>
+    <div class="hero-text">
+      <h1 class="name">陳昱齊　YU CHI CHEN</h1>
+      <p class="role"><span class="eyebrow">Position</span><br>AI Agent 工程師　｜　LLM / Tool Use / 跨領域整合</p>
+      <div class="chips">
+        <span class="chip"><span class="ic" aria-hidden="true">✉</span>chyi6295@gmail.com</span>
+        <span class="chip"><span class="ic" aria-hidden="true">☎</span>0986-989798</span>
+        <span class="chip"><span class="ic" aria-hidden="true">✎</span>國立陽明交通大學 資訊碩士專班（在學）</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 個人定位 -->
+  <section id="about" class="reveal" aria-labelledby="l-about">
+    <h2 class="sec-label" id="l-about"><span class="num">01</span>個人定位</h2>
+        <p class="lead"><span class="count" data-to="9">0</span> 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。<br>以「<span class="hl">AI Agent 工程</span>」為新主軸，結合製造業落地經驗：</p>
+    <ul class="b about-pts">
+      <li><b>Agent 工具設計</b>　把資料來源與設備介面封裝成標準化 tool，對齊 function-calling 思維。</li>
+      <li><b>AI 落地驗收</b>　主導 CV 模型上線，熟悉 Human Review 與不確定性的控管。</li>
+      <li><b>業務邏輯轉譯</b>　把工廠需求轉成清晰的任務 / 工具規格。</li>
+      <li><b>跨域協作</b>　串接製造、資訊、品保與客戶稽核，銜接技術與現場。</li>
+    </ul>
+  </section>
+
+  <!-- 核心技術 -->
+  <section id="skills" class="reveal" aria-labelledby="l-skills">
+    <h2 class="sec-label" id="l-skills"><span class="num">02</span>核心技術</h2>
+    <div class="skill-groups">
+      <div class="skill-group"><h3>LLM / Agent</h3><div class="tags"><span class="tag">LangChain / LangGraph（自學實作）</span><span class="tag">hermes（日常使用）</span><span class="tag">MCP 協定</span><span class="tag">LLM harness skills</span><span class="tag">Function Calling</span><span class="tag">RAG（pgvector / FAISS）</span><span class="tag">Agent 編排</span></div></div>
+      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">.NET Core</span><span class="tag">SQL</span></div></div>
+      <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Observability / Trace</span><span class="tag">Human Review 验收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
+      <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span></div></div>
+    </div>
+    <p class="skill-note">註：LLM / Agent 為自學與個人專案實作（含 RAG / tool use / 編排練習）；製造 / MES 與工程實踐為本職實戰。</p>
+  </section>
+
+  <!-- 工作經歷 -->
+  <section id="exp" class="reveal" aria-labelledby="l-exp">
+    <h2 class="sec-label" id="l-exp"><span class="num">03</span>工作經歷</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-top"><div><span class="tl-title">MES IT 工程師</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2024/04 – 至今</div></div>
+        <ul class="b">
+          <li><b>MES 實作</b>　以 C# / .NET Core API 開發晶圓凸塊生產管控 API 專案，串接資料來源與設備介面。</li>
+          <li><b>模組化設計</b>　把資料讀寫與外部系統呼叫拆成獨立模組，方便維護與替換。</li>
+          <li><b>批次優化</b>　監控查詢頻率與延遲，改批次處理減少來回次數，提升吞吐量。</li>
+          <li><b>異常處理</b>　設計 retry → 人工確認 → 交接紀錄，避免作業卡死在錯誤循環。</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-top"><div><span class="tl-title">製程工程師（晶圓測試）</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2017/04 – 2024/03</div></div>
+        <ul class="b">
+          <li><b>Probe Mark AI</b>　主導導入 CV 模型 → 影像 API → SOP 判讀 → 人工複核，自動化檢查對抗影像不一致，年省 <span class="count" data-to="295">0</span> 萬元。</li>
+          <li><b>FMEA 風險分析</b>　主導 <span class="count" data-to="50">0</span>+ 場潛在失效分析，建立標準作業與防呆機制。</li>
+          <li><b>國際客戶稽核</b>　參與 Apple / Intel / BOSCH 等 10+ 次稽核，熟悉製造業品質與驗收體系。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 專案亮點 -->
+  <section id="projects" class="reveal" aria-labelledby="l-proj">
+    <h2 class="sec-label" id="l-proj"><span class="num">04</span>專案亮點</h2>
+    <div class="cards">
+      <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 <span class="count" data-to="295">0</span> 萬元。</p></div>
+      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>以 .NET Core API 開發生產管控 API 專案；資料存取與外部呼叫拆分為獨立模組；建立批次查詢與明確的異常處理路徑，提升可維護性。</p></div>
+      <div class="card"><div class="yr">實作中</div><h3>LLM Agent 專案（自學實作）</h3><p>以 LangGraph 編排 multi-tool agent；用 hermes / MCP 接外部 tool；RAG over 內部 SOP（pgvector / FAISS）；自寫 eval 與 trace log，練習 Error Fallback 與 Human Review。</p></div>
+    </div>
+  </section>
+
+  <!-- 學歷 -->
+  <section id="edu" class="reveal" aria-labelledby="l-edu">
+    <h2 class="sec-label" id="l-edu"><span class="num">05</span>學歷</h2>
+    <div class="edu">
+      <div class="e"><div class="d">碩士（在學）</div><div class="s">國立陽明交通大學 資訊科學碩士專班</div><div class="c">2024 – 預計 2026</div></div>
+      <div class="e"><div class="d">學士</div><div class="s">國立中正大學 物理學系</div><div class="c">2011 – 2015　｜　系統化建模與實驗驗證方法論</div></div>
+    </div>
+  </section>
+
+  <!-- 為什麼選我 -->
+  <section id="why" class="reveal" aria-labelledby="l-why">
+    <h2 class="sec-label" id="l-why"><span class="num">06</span>為什麼選我</h2>
+    <div class="why">
+      <div class="w"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>能快速設計標準化模組架構</p></div>
+      <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束<br>設計出的系統能真正落地</p></div>
+      <div class="w"><span class="n">03</span><h4>業務邏輯轉譯</h4><p>跨越技術與需求鴻溝<br>把現場需要轉成清晰規格</p></div>
+      <div class="w"><span class="n">04</span><h4>AI 落地驗收經驗</h4><p>主導影像辨識上線<br>熟悉企業場景控管</p></div>
+      <div class="w"><span class="n">05</span><h4>Agent 工具思維</h4><p>熟悉 tool / function-calling<br>把系統拆成可呼叫模組</p></div>
+      <div class="w"><span class="n">06</span><h4>嚴謹工程素養</h4><p>Fallback / 日誌 / 人工複核<br>把不確定性當成設計項</p></div>
+    </div>
+  </section>
+
+  <!-- 聯絡 -->
+  <section id="contact" class="reveal" aria-labelledby="l-contact">
+    <h2 class="sec-label" id="l-contact"><span class="num">07</span>聯絡方式</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <p class="k">Email</p>
+        <p class="v"><a href="mailto:chyi6295@gmail.com">chyi6295@gmail.com</a></p>
+      </div>
+      <div class="contact-card">
+        <p class="k">電話</p>
+        <p class="v"><a href="tel:0986989798">0986-989798</a></p>
+      </div>
+      <div class="contact-card">
+        <p class="k">在學</p>
+        <p class="v">國立陽明交通大學 資訊碩士專班</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  var bar=document.getElementById('progress');
+  function onScroll(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Active nav state via IntersectionObserver on sections
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  var byId={};navLinks.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a;});
+  var secObserver=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        navLinks.forEach(function(a){a.classList.remove('active');a.removeAttribute('aria-current');});
+        var a=byId[e.target.id];
+        if(a){a.classList.add('active');a.setAttribute('aria-current','true');}
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  document.querySelectorAll('section[id]').forEach(function(s){secObserver.observe(s);});
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('is-visible');
+      if(e.target.id==='exp'){var tl=e.target.querySelector('.timeline');if(tl)tl.classList.add('is-drawn');}
+      e.target.querySelectorAll && e.target.querySelectorAll('.count').forEach(animateCount);
+      var sec=e.target;
+      sec.querySelectorAll('.skill-group .tag').forEach(function(el,i){el.style.animationDelay=(0.04+i*0.05)+'s';});
+      sec.querySelectorAll('.tl-item').forEach(function(el,i){el.style.animationDelay=(0.06+i*0.12)+'s';});
+      sec.querySelectorAll('.card').forEach(function(el,i){el.style.animationDelay=(0.06+i*0.1)+'s';});
+      sec.querySelectorAll('.why .w').forEach(function(el,i){el.style.animationDelay=(0.06+i*0.08)+'s';});
+      io.unobserve(e.target);
+    }
+  });},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // ---- WOW: count-up numbers ----
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function animateCount(el){
+    if(el.dataset.done) return; el.dataset.done='1';
+    var to=parseInt(el.dataset.to,10), dur=1100, t0=null;
+    if(reduce){ el.textContent=to; return; }
+    function step(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/dur);
+      el.textContent=Math.round(to*(1-Math.pow(1-p,3)));
+      if(p<1) requestAnimationFrame(step); else el.textContent=to; }
+    requestAnimationFrame(step);
+  }
+  var countObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){animateCount(e.target);countObs.unobserve(e.target);}});},{threshold:.4});
+  document.querySelectorAll('.count').forEach(function(c){countObs.observe(c);});
+
+  // ---- WOW: hero cursor glow ----
+  var hero=document.querySelector('.hero');
+  if(hero && !reduce){ hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');hero.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');}); }
+
+  // ---- WOW: 3D tilt on cards ----
+  if(!reduce){ ['#projects .cards','#why .why'].forEach(function(sel){
+    var boxes=document.querySelectorAll(sel);
+    boxes.forEach(function(box){
+      box.querySelectorAll('.card,.w').forEach(function(it){ it.classList.add('tilt'); });
+      box.addEventListener('mousemove',function(e){var r=box.getBoundingClientRect();
+        box.querySelectorAll('.card,.w').forEach(function(it){var ir=it.getBoundingClientRect();var x=(e.clientX-ir.left)/ir.width-.5,y=(e.clientY-ir.top)/ir.height-.5;it.style.transform='perspective(900px) rotateX('+(-y*6)+'deg) rotateY('+(x*6)+'deg)';});});
+      box.addEventListener('mouseleave',function(){box.querySelectorAll('.card,.w').forEach(function(it){it.style.transform='';});});
+    });
+  }); }
+</script>
+</body>
+</html>
