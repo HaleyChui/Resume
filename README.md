@@ -4,7 +4,7 @@
 
 ## 檔案
 - `resume.md` — 來源（Big5）
-- `resume.html` — 成果（self-contained，可直接瀏覽 / 列印成 PDF）
+- `resume-ai-agent.html` — 成果（self-contained，AI Agent 工程師版，可直接瀏覽 / 列印成 PDF）
 
 ## 隱私
 - remote 僅 `HaleyChui/Resume`（**private**）；若誤設 public 立即改回。
