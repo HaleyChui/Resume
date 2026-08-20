@@ -392,7 +392,7 @@
   <section id="skills" class="reveal" aria-labelledby="l-skills">
     <h2 class="sec-label" id="l-skills"><span class="num">02</span>核心技術</h2>
     <div class="skill-groups">
-      <div class="skill-group"><h3>LLM / Agent</h3><div class="tags"><span class="tag">LangChain / LangGraph（自學實作）</span><span class="tag">hermes（日常使用）</span><span class="tag">MCP 協定</span><span class="tag">LLM harness skills</span><span class="tag">Function Calling</span><span class="tag">RAG（pgvector / FAISS）</span><span class="tag">Agent 編排</span></div></div>
+      <div class="skill-group"><h3>LLM / Agent</h3><div class="tags"><span class="tag">LangGraph 編排</span><span class="tag">手寫 MiniGPT（attention/backprop）</span><span class="tag">RAG（faiss / 對比學習 embedding）</span><span class="tag">Tool Use / Function Calling</span><span class="tag">Human Review 安全機制</span><span class="tag">Prompt Injection 防禦</span><span class="tag">Checkpoint 續跑</span><span class="tag">Eval（LLM-as-judge）</span><span class="tag">hermes / MCP</span></div></div>
       <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">.NET Core</span><span class="tag">SQL</span></div></div>
       <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Observability / Trace</span><span class="tag">Human Review 验收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
       <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span></div></div>
@@ -430,7 +430,7 @@
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 <span class="count" data-to="295">0</span> 萬元。</p></div>
       <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>以 .NET Core API 開發生產管控 API 專案；資料存取與外部呼叫拆分為獨立模組；建立批次查詢與明確的異常處理路徑，提升可維護性。</p></div>
-      <div class="card"><div class="yr">2026</div><h3>本地 LLM Agent 專案（實作）</h3><p>從零手寫 MiniGPT 訓練（理解 attention / backprop）；上層用 LangGraph 編排 multi-tool Agent + 本地 Qwen q4 模型 + RAG（faiss，不用 ChromaDB）+ 自寫 eval。含 Tool Use / Human Review / Error Fallback。程式庫：<a href="https://github.com/HaleyChui/mini-llm-agent">mini-llm-agent</a></p></div>
+      <div class="card"><div class="yr">2026</div><h3>本地 LLM Agent 專案（實作）</h3><p>從零手寫 MiniGPT（理解 Q/K/V 分離、scaled dot-product、chain-rule 訓練）；上層用 LangGraph 編排 multi-tool Agent：RAG（faiss + 對比學習概念）、Tool Use、Human Review 安全機制、Prompt Injection 防禦、Checkpoint 續跑、自寫 Eval（LLM-as-judge 偏誤校正）。本地 Qwen q4 模型，不用 ChromaDB。程式庫：<a href="https://github.com/HaleyChui/mini-llm-agent">mini-llm-agent</a></p></div>
     </div>
   </section>
 
