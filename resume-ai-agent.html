@@ -35,7 +35,7 @@
   body{
     margin:0;background:var(--paper);color:var(--ink);
     font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans TC",system-ui,sans-serif;
-    line-height:1.65;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1;
+    line-height:1.65;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1;overflow-wrap:break-word;
   }
 
   /* Skip link - keyboard / screen-reader first stop */
@@ -103,8 +103,9 @@
   .hero .role{animation:heroIn .7s var(--ease) both .25s;}
   .hero .chips .chip{opacity:0;animation:heroIn .6s var(--ease) both;}
   .hero .chips .chip:nth-child(1){animation-delay:.40s;}
-  .hero .chips .chip:nth-child(2){animation-delay:.52s;}
-  .hero .chips .chip:nth-child(3){animation-delay:.64s;}
+  .hero .chips .chip:nth-child(2){animation-delay:.50s;}
+  .hero .chips .chip:nth-child(3){animation-delay:.60s;}
+  .hero .chips .chip:nth-child(4){animation-delay:.70s;}
 
   section{margin-top:64px;scroll-margin-top:calc(var(--nav-h) + 18px);}
   .sec-label{
@@ -155,7 +156,7 @@
   ul.b li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);}
   ul.b li b{color:var(--teal);font-weight:600;}
 
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
   .card{
     position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
     padding:22px 20px 24px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);page-break-inside:avoid;
@@ -371,7 +372,8 @@
       <div class="chips">
         <span class="chip"><span class="ic" aria-hidden="true">✉</span>chyi6295@gmail.com</span>
         <span class="chip"><span class="ic" aria-hidden="true">☎</span>0986-989798</span>
-        <span class="chip"><span class="ic" aria-hidden="true">✎</span>國立陽明交通大學 資訊碩士專班（在學）</span>
+        <span class="chip"><span class="ic" aria-hidden="true">⌥</span><a href="https://github.com/HaleyChui" style="color:inherit;text-decoration:none;">github.com/HaleyChui</a></span>
+        <span class="chip"><span class="ic" aria-hidden="true">✎</span>陽明交大 資訊碩專班（在學）</span>
       </div>
     </div>
   </header>
@@ -381,10 +383,10 @@
     <h2 class="sec-label" id="l-about"><span class="num">01</span>個人定位</h2>
         <p class="lead"><span class="count" data-to="9">0</span> 年半導體實戰（製程 7 年 + MES IT 2 年），陽明交大資科碩專班在學。<br>以「<span class="hl">AI Agent 工程</span>」為新主軸，結合製造業落地經驗：</p>
     <ul class="b about-pts">
-      <li><b>Agent 工具設計</b>　把資料來源與設備介面，拆成一個個模型可以直接呼叫的 tool，讓它知道什麼時候該用、參數怎麼填。</li>
-      <li><b>AI 落地驗收</b>　主導 CV 模型上線，熟悉 Human Review 與不確定性的控管。</li>
-      <li><b>業務邏輯轉譯</b>　把工廠需求轉成清晰的任務 / 工具規格。</li>
-      <li><b>跨域協作</b>　串接製造、資訊、品保與客戶稽核，銜接技術與現場。</li>
+      <li><b>Agent 工具設計</b>　把資料來源與設備介面封裝成模型可呼叫的 tool。</li>
+      <li><b>AI 落地驗收</b>　主導 CV 模型上線，熟悉 Human Review 與不確定性控管。</li>
+      <li><b>業務邏輯轉譯</b>　把工廠需求轉成清晰的任務與工具規格。</li>
+      <li><b>跨域協作</b>　串接製造、資訊、品保與客戶稽核。</li>
     </ul>
   </section>
 
@@ -392,12 +394,12 @@
   <section id="skills" class="reveal" aria-labelledby="l-skills">
     <h2 class="sec-label" id="l-skills"><span class="num">02</span>核心技術</h2>
     <div class="skill-groups">
-      <div class="skill-group"><h3>LLM / Agent</h3><div class="tags"><span class="tag">LangGraph 編排</span><span class="tag">手寫 MiniGPT（attention/backprop）</span><span class="tag">RAG（faiss / 對比學習 embedding）</span><span class="tag">Tool Use / Function Calling</span><span class="tag">Human Review 安全機制</span><span class="tag">Prompt Injection 防禦</span><span class="tag">Checkpoint 續跑</span><span class="tag">Eval（LLM-as-judge）</span><span class="tag">hermes / MCP</span></div></div>
+      <div class="skill-group"><h3>LLM / Agent</h3><div class="tags"><span class="tag">LangGraph 編排</span><span class="tag">RAG（faiss）</span><span class="tag">Tool Use / Function Calling</span><span class="tag">Prompt Injection 防禦</span><span class="tag">Checkpoint 續跑</span><span class="tag">hermes / MCP</span></div></div>
       <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">.NET Core</span><span class="tag">SQL</span></div></div>
-      <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Observability / Trace</span><span class="tag">Human Review 验收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
+      <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Observability / Trace</span><span class="tag">Human Review 驗收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
       <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span></div></div>
     </div>
-    <p class="skill-note">註：LLM / Agent 為自學與個人專案實作（含本地 MiniGPT 訓練 + LangGraph Agent 編排 / RAG / Tool Use / eval）；製造 / MES 與工程實踐為本職實戰。</p>
+    <p class="skill-note">註：LLM / Agent 為自學與個人專案實作（github.com/HaleyChui）；製造 / MES 與工程實踐為本職實戰。</p>
   </section>
 
   <!-- 工作經歷 -->
@@ -416,9 +418,9 @@
       <div class="tl-item">
         <div class="tl-top"><div><span class="tl-title">製程工程師（晶圓測試）</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2017/04 - 2024/03</div></div>
         <ul class="b">
-          <li><b>Probe Mark AI</b>　主導導入 CV 模型 → 影像 API → SOP 判讀 → 人工複核，自動化檢查對抗影像不一致，年省 <span class="count" data-to="295">0</span> 萬元。</li>
-          <li><b>FMEA 風險分析</b>　主導 <span class="count" data-to="50">0</span>+ 場潛在失效分析，建立標準作業與防呆機制。</li>
-          <li><b>國際客戶稽核</b>　參與 Apple / Intel / BOSCH 等 10+ 次稽核，熟悉製造業品質與驗收體系。</li>
+          <li><b>Probe Mark AI</b>　主導 CV 模型上線（影像 API → SOP 判讀 → 人工複核），年省 <span class="count" data-to="295">0</span> 萬元。</li>
+          <li><b>FMEA 風險分析</b>　主導 <span class="count" data-to="50">0</span>+ 場失效分析，建立標準作業與防呆機制。</li>
+          <li><b>國際客戶稽核</b>　參與 Apple / Intel / BOSCH 等 10+ 次稽核。</li>
         </ul>
       </div>
     </div>
@@ -428,9 +430,8 @@
   <section id="projects" class="reveal" aria-labelledby="l-proj">
     <h2 class="sec-label" id="l-proj"><span class="num">04</span>專案亮點</h2>
     <div class="cards">
-      <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。Non-determinism 致班別不一致 → Automated Check 閾值自動複核；年省 <span class="count" data-to="295">0</span> 萬元。</p></div>
-      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>以 .NET Core API 開發生產管控 API 專案；資料存取與外部呼叫拆分為獨立模組；建立批次查詢與明確的異常處理路徑，提升可維護性。</p></div>
-      <div class="card"><div class="yr">2026</div><h3>本地 LLM Agent 專案（實作）</h3><p>從零手寫 MiniGPT（理解 Q/K/V 分離、scaled dot-product、chain-rule 訓練）；上層用 LangGraph 編排 multi-tool Agent：RAG（faiss + 對比學習概念）、Tool Use、Human Review 安全機制、Prompt Injection 防禦、Checkpoint 續跑、自寫 Eval（LLM-as-judge 偏誤校正）。本地 Qwen q4 模型，不用 ChromaDB。程式庫：<a href="https://github.com/HaleyChui/mini-llm-agent">mini-llm-agent</a></p></div>
+      <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識（實戰）</h3><p>主導導入：CV Model → 影像 API → SOP 判讀 → Human Review。以 Automated Check 閾值自動複核解決班別不一致，年省 <span class="count" data-to="295">0</span> 萬元。</p></div>
+      <div class="card"><div class="yr">2024</div><h3>MES 凸塊生產管控 API（實戰）</h3><p>.NET Core API 開發生產管控專案；資料存取與外部呼叫模組化，批次查詢與明確異常處理路徑。</p></div>
     </div>
   </section>
 
@@ -447,12 +448,12 @@
   <section id="why" class="reveal" aria-labelledby="l-why">
     <h2 class="sec-label" id="l-why"><span class="num">06</span>為什麼選我</h2>
     <div class="why">
-      <div class="w"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>能快速設計標準化模組架構</p></div>
-      <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束<br>設計出的系統能真正落地</p></div>
-      <div class="w"><span class="n">03</span><h4>業務邏輯轉譯</h4><p>跨越技術與需求鴻溝<br>把現場需要轉成清晰規格</p></div>
+      <div class="w"><span class="n">01</span><h4>工具封裝設計力</h4><p>8 年 API / DB 整合<br>快速設計標準化模組</p></div>
+      <div class="w"><span class="n">02</span><h4>製程 × MES 雙視角</h4><p>懂工廠真實約束<br>系統能真正落地</p></div>
+      <div class="w"><span class="n">03</span><h4>業務邏輯轉譯</h4><p>跨越技術與需求鴻溝<br>現場需求轉清晰規格</p></div>
       <div class="w"><span class="n">04</span><h4>AI 落地驗收經驗</h4><p>主導影像辨識上線<br>熟悉企業場景控管</p></div>
-      <div class="w"><span class="n">05</span><h4>Agent 工具思維</h4><p>熟悉 tool / function-calling<br>把系統拆成可呼叫模組</p></div>
-      <div class="w"><span class="n">06</span><h4>嚴謹工程素養</h4><p>Fallback / 日誌 / 人工複核<br>把不確定性當成設計項</p></div>
+      <div class="w"><span class="n">05</span><h4>Agent 工具思維</h4><p>熟悉 tool / function-calling<br>系統拆成可呼叫模組</p></div>
+      <div class="w"><span class="n">06</span><h4>嚴謹工程素養</h4><p>Fallback / 日誌 / 人工複核<br>不確定性當設計項</p></div>
     </div>
   </section>
 
