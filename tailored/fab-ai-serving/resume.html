@@ -156,7 +156,7 @@
   ul.b li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);}
   ul.b li b{color:var(--teal);font-weight:600;}
 
-  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .card{
     position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
     padding:22px 20px 24px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);page-break-inside:avoid;
@@ -367,7 +367,7 @@
     <div class="mono" aria-hidden="true"><span>Haley</span></div>
     <div class="hero-text">
       <h1 class="name">陳昱齊　YU CHI CHEN</h1>
-      <p class="role"><span class="eyebrow">Position</span><br>製程　｜　MES 系統開發　｜　LLM 應用</p>
+      <p class="role"><span class="eyebrow">Position</span><br>AI 工程師　｜　LLM Serving / 製造 AI　｜　模型上線與評估</p>
       <div class="chips">
         <span class="chip"><span class="ic" aria-hidden="true">✉</span><a href="mailto:chyi6295@gmail.com" style="color:inherit;text-decoration:none;">chyi6295@gmail.com</a></span>
         <span class="chip"><span class="ic" aria-hidden="true">☎</span><a href="tel:0986989798" style="color:inherit;text-decoration:none;">0986-989798</a></span>
@@ -380,12 +380,12 @@
   <!-- 個人定位 -->
   <section id="about" class="reveal" aria-labelledby="l-about">
     <h2 class="sec-label" id="l-about"><span class="num">01</span>個人定位</h2>
-        <p class="lead"><span class="count" data-to="9">0</span> 年半導體經驗（製程 7 年、MES IT 2 年），陽明交大資科碩專班在學。<br>目前負責晶圓凸塊生產管控系統開發。</p>
+        <p class="lead"><span class="count" data-to="9">0</span> 年半導體經驗（製程 7 年、MES IT 2 年），陽明交大資科碩專班在學。<br>熟悉晶圓廠生產與良率場景，目標是把 LLM 從原型推進成穩定服務的製造 AI 系統。</p>
     <ul class="b about-pts">
-      <li><b>工具設計</b>　把資料來源和機台介面包成 API，讓上層系統統一呼叫。</li>
-      <li><b>模型上線</b>　主導 CV 模型上產線；模型會誤判，所以配了自動檢查和人工複核。</li>
-      <li><b>需求轉譯</b>　長期與產線、工程單位密切合作，把現場問題轉成開發可執行的規格。</li>
-      <li><b>協作</b>　平常對接製造與品質管理單位，經手過 Apple、Intel 等客戶稽核。</li>
+      <li><b>LLM Serving / AI 後端</b>　實作過 Agent 系統的 API 服務與狀態持久化，包含 Error Fallback 與續跑機制，能支撐 LLM 在生產環境穩定服務。</li>
+      <li><b>模型上線與評估</b>　主導過 CV 模型上產線，配自動檢查與人工複核；也做過 LLM 應用的 LLM-as-judge 評估流程。</li>
+      <li><b>製造場景落地</b>　長期與產線、工程單位合作，理解控管圖、良率與品質場景，能把 AI 對接到製造實際痛點。</li>
+      <li><b>半導體 domain</b>　9 年現場涵蓋製程、FMEA、客戶稽核，能與工程部門用同一套語言定義問題與驗收標準。</li>
     </ul>
   </section>
 
@@ -393,10 +393,10 @@
   <section id="skills" class="reveal" aria-labelledby="l-skills">
     <h2 class="sec-label" id="l-skills"><span class="num">02</span>核心技術</h2>
     <div class="skill-groups">
-      <div class="skill-group"><h3>LLM / Agent</h3><div class="tags"><span class="tag">LangGraph 編排</span><span class="tag">RAG（faiss）</span><span class="tag">Tool Use / Function Calling</span><span class="tag">Prompt Injection 防禦</span><span class="tag">Checkpoint 續跑</span><span class="tag">hermes / MCP</span></div></div>
-      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">ASP.NET</span><span class="tag">.NET Core</span><span class="tag">SQL</span></div></div>
-      <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">Error Handling</span><span class="tag">Fallback 機制</span><span class="tag">State 持久化</span><span class="tag">Observability / Trace</span><span class="tag">Human Review 驗收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
-      <div class="skill-group"><h3>領域知識</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">FMEA 風險分析</span><span class="tag">IATF 16949</span><span class="tag">ISO 26262</span><span class="tag">國際客戶稽核</span><span class="tag">跨領域整合</span></div></div>
+      <div class="skill-group"><h3>LLM Serving / Agent</h3><div class="tags"><span class="tag">LangGraph 編排</span><span class="tag">RAG（faiss）</span><span class="tag">Tool Use / Function Calling</span><span class="tag">Checkpoint 續跑</span><span class="tag">hermes / MCP</span><span class="tag">API 服務化</span></div></div>
+      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">.NET Core</span><span class="tag">SQL</span><span class="tag">REST API</span><span class="tag">批次 / 串流處理</span></div></div>
+      <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">模型上線</span><span class="tag">Error Handling / Fallback</span><span class="tag">Logging / Tracing</span><span class="tag">State 持久化</span><span class="tag">Human Review 驗收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
+      <div class="skill-group"><h3>製造領域</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">良率 / 品質場景</span><span class="tag">控管圖與異常預警</span><span class="tag">FMEA 風險分析</span><span class="tag">跨部門整合</span><span class="tag">國際客戶稽核</span></div></div>
     </div>
   </section>
 
@@ -430,6 +430,7 @@
     <div class="cards">
       <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識</h3><p>以 CNN（GoogLeNet）解決 PAD 色差造成的外框誤判與雙框選定問題；多層 Convolution 搭配 DoG 銳化突顯針痕邊緣，搭配 particle size 級距區分針痕與異物。不同班別判定基準不一致，建立自動複核標準統一規範，每年為產線節省 <span class="count" data-to="295">0</span> 萬元。</p></div>
       <div class="card"><div class="yr">2026</div><h3>MES 凸塊生產管控 API</h3><p>以 .NET Core 開發生產管控專案。資料存取與外部系統呼叫各自封裝成模組，查詢結果以批次方式集中處理，異常情況有明確的處理路徑，不影響前端作業流程。</p></div>
+      <div class="card"><div class="yr">2026</div><h3>mini-llm-agent：LLM Serving 練習</h3><p>以 LangGraph 建立 Agent 系統：RAG 檢索（faiss）、Tool Use、Human Review 與 LLM-as-judge 評估流程，搭配 Error Fallback 與狀態持久化，練習把 LLM 從原型推進成穩定服務。對齊晶圓廠 LLM serving 場景的模型上線與評估實作。</p></div>
     </div>
   </section>
 
@@ -446,11 +447,11 @@
   <section id="why" class="reveal" aria-labelledby="l-why">
     <h2 class="sec-label" id="l-why"><span class="num">06</span>為什麼選我</h2>
     <div class="why">
-      <div class="w"><span class="n">01</span><h4>API 整合</h4><p>2 年 MES 開發經驗<br>新舊系統都能銜接</p></div>
-      <div class="w"><span class="n">02</span><h4>懂現場</h4><p>7 年製程經驗<br>長期與產線、工程單位密切合作</p></div>
-      <div class="w"><span class="n">03</span><h4>需求轉規格</h4><p>理解現場問題<br>轉為 IT 可執行的規格</p></div>
-      <div class="w"><span class="n">04</span><h4>模型上線經驗</h4><p>影像辨識實際運行於產線<br>處理過誤判與異常流程</p></div>
-      <div class="w"><span class="n">05</span><h4>拆解問題</h4><p>遇到問題先拆分結構、定位癥結點<br>必要時封裝成獨立模組，也應用在 LLM tool 設計</p></div>
+      <div class="w"><span class="n">01</span><h4>9 年半導體現場</h4><p>懂製程與良率場景<br>能與工程部門用同一套語言</p></div>
+      <div class="w"><span class="n">02</span><h4>LLM 服務化</h4><p>做過 Agent API 與續跑機制<br>能支撐 LLM 穩定上線</p></div>
+      <div class="w"><span class="n">03</span><h4>模型上線經驗</h4><p>CV 模型實際運行於產線<br>也做過 LLM 評估流程</p></div>
+      <div class="w"><span class="n">04</span><h4>製造痛點對接</h4><p>理解控管圖、品質與抽樣<br>能把 AI 對到實際問題</p></div>
+      <div class="w"><span class="n">05</span><h4>系統性追根因</h4><p>50+ 場失效分析訓練<br>先拆結構、定位癥結再動手</p></div>
       <div class="w"><span class="n">06</span><h4>嚴謹的異常處理</h4><p>Fallback、日誌、人工複核<br>出問題時有紀錄、有流程</p></div>
     </div>
   </section>
