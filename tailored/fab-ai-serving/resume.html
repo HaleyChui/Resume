@@ -428,9 +428,8 @@
   <section id="projects" class="reveal" aria-labelledby="l-proj">
     <h2 class="sec-label" id="l-proj"><span class="num">04</span>專案亮點</h2>
     <div class="cards">
-      <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識</h3><p>以 CNN（GoogLeNet）解決 PAD 色差造成的外框誤判與雙框選定問題；多層 Convolution 搭配 DoG 銳化突顯針痕邊緣，搭配 particle size 級距區分針痕與異物。不同班別判定基準不一致，建立自動複核標準統一規範，每年為產線節省 <span class="count" data-to="295">0</span> 萬元。</p></div>
-      <div class="card"><div class="yr">2026</div><h3>MES 凸塊生產管控 API</h3><p>以 .NET Core 開發生產管控專案。資料存取與外部系統呼叫各自封裝成模組，查詢結果以批次方式集中處理，異常情況有明確的處理路徑，不影響前端作業流程。</p></div>
-      <div class="card"><div class="yr">2026</div><h3>mini-llm-agent：LLM Serving 練習</h3><p>以 LangGraph 建立 Agent 系統：RAG 檢索（faiss）、Tool Use、Human Review 與 LLM-as-judge 評估流程，搭配 Error Fallback 與狀態持久化，練習把 LLM 從原型推進成穩定服務。對齊晶圓廠 LLM serving 場景的模型上線與評估實作。</p></div>
+      <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識</h3><p>以 CNN（GoogLeNet）做影像檢索與判定，解決 PAD 色差造成的誤判與雙框選定；多層 Convolution 搭配 DoG 銳化突顯針痕邊緣，particle size 級距區分針痕與異物。建立自動複核標準統一各班別判定基準，實際運行於產線，每年節省 <span class="count" data-to="295">0</span> 萬元——系統跑穩才產生可度量的效益。</p></div>
+      <div class="card"><div class="yr">2026</div><h3>MES 凸塊生產管控 API</h3><p>以 .NET Core 開發生產管控系統。資料存取與外部系統呼叫各自封裝成模組，查詢結果以批次集中處理；異常時有明確處理路徑——retry、人工確認與交接紀錄，錯了能兜住、不中斷前端作業。把不穩定的外部依賴做成可靠、可維運的產線級服務。</p></div>
     </div>
   </section>
 
@@ -454,6 +453,11 @@
       <div class="w"><span class="n">05</span><h4>系統性追根因</h4><p>50+ 場失效分析訓練<br>先拆結構、定位癥結再動手</p></div>
       <div class="w"><span class="n">06</span><h4>嚴謹的異常處理</h4><p>Fallback、日誌、人工複核<br>出問題時有紀錄、有流程</p></div>
     </div>
+  </section>
+
+  <section id="note" class="reveal" aria-labelledby="l-note">
+    <h2 class="sec-label" id="l-note"><span class="num">07</span>補充說明</h2>
+    <p class="lead" style="font-size:18px;line-height:1.7;color:var(--muted)">LLM / Agent 相關實作以個人練習專案持續累積（LangGraph、RAG、Tool Use 等），本履歷正式成就以實際上線的 Probe Mark AI 與 MES 凸塊生產管控 API 為主。</p>
   </section>
 
 </div>
