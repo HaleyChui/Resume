@@ -1,0 +1,26 @@
+【Headline 主用版，直接貼，98 字元 / 上限 220】
+AI Engineer（轉型中）｜Manufacturing AI / LLM 應用｜MES IT × 9年半導體｜C# / .NET 8 / RAG / LangGraph｜NYCU 資科碩在學
+
+【Headline 英文版，直接貼，112 字元 / 上限 220】
+AI Engineer | Manufacturing AI / LLM Applications | MES IT x 9Yrs Semiconductor | C# .NET 8 RAG LangGraph | NYCU
+
+【Skills 置頂 3 個，建議】
+1. MES（本業代表作，9年現場＋伺服器＋導入全包）
+2. Computer Vision（Probe Mark AI 上線＋年省 295 萬，唯一能量化的 AI 實績）
+3. Large Language Models (LLM)（目標職位關鍵字，side project 水準，誠實面對背書）
+
+【Skills 全單，分組貼，每組只列已實作的】
+
+製造現場（正式經歷）
+MES / 半導體製程 / 晶圓測試 / FMEA / APQP / IATF 16949 / SOP / 良率改善 / 客戶稽核 / 生產報表
+
+後端系統（EIP_API＋MES 驗證過）
+C# / .NET 8 / REST API / Oracle Database / Microsoft SQL Server / 系統整合 / 伺服器管理 / 系統導入 / 需求訪談 / 教育訓練
+
+AI（註明程度：CV 是上線實績，LLM 系是 side＋在學）
+Computer Vision / Image Recognition / LangGraph / Retrieval-Augmented Generation (RAG) / LLM 評估 / MLOps
+
+【使用說明】
+1. Headline 先貼主用版，英文版是 recruiter 用英文搜尋時的備用，兩週後看誰帶來的 profile view 多再留一個。
+2. Skills 先加製造現場＋後端系統這兩組（全部正式經歷，背書不心虛），AI 組等 EIP_API README 補好、或有第二個 side repo 再加，避免 skill 多但沒證據。
+3. 置頂 3 個設完後，去請前同事幫 Computer Vision 跟 MES 背書這兩個，LLM 那個先不討背書。

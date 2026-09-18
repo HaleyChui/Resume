@@ -1,0 +1,68 @@
+專業總結 (Professional Summary)
+
+
+
+半導體MES IT工程師，具備超過七年的半導體產業經驗。
+
+從製程工程師轉型為MES IT工程師，使用C#與.NET框架進行製造執行系統(MES)的開發與維護。
+
+了解晶圓測試(Wafer Sort) & 晶圓凸塊(Wafer Bump)的製程與品質管理，能更好理解將使用者需求，並轉化為高效的系統解決方案。
+
+使我能從源頭預防問題，設計出真正符合工廠邏輯的防呆與自動化功能。
+
+
+
+技能專長(Skills Profile)
+
+
+
+IT 專業技能 (Technical Skills)
+
+程式語言： C#, SQL, Python, VBA
+資料庫： IBM Informix / Oracle (查詢、預存程序、SQL tuning)
+系統： MES系統架構與開發
+開發工具： Visual Studio
+軟體版本控制： SVN
+
+
+工程與品質管理 (Engineering & Quality)
+
+品質系統： IATF 16949, ISO 26262, VDA 6.3
+核心工具： FMEA, APQP, PPAP, SPC, MSA
+流程改善： 良率分析 (Yield Analysis), 根本原因分析 (RCA)
+客戶稽核： 具備豐富的國內外一線大廠稽核應對經驗
+專案管理： 跨部門溝通、流程優化、SOP 建立
+
+
+工作經歷 (Work Experience)
+
+
+
+南茂科技 (ChipMOS TECHNOLOGIES INC.)
+
+MES IT 工程師 (MES IT Engineer) | 2024/04 – 至今
+
+系統開發與效能提升：
+主導晶圓凸塊(Wafer Bumping) MES系統之C#應用程式開發、重構與維護。
+開發自動化程式與防呆卡控機制。
+系統整合與問題解決：
+即時排除產線端 MES 系統的緊急異常。
+跨部門合作，分析使用者需求，將其轉化為具體的系統規格書。
+ 專案導入
+
+
+製程工程師 (Process Engineer) | 2017/04 - 2024/03
+
+跨界系統流程優化：
+主動發掘超過20項製程作業流程痛點，規劃系統自動化與防呆設計。
+擔任工程端與IT部門的溝通橋樑，將複雜的製程邏輯轉化為清晰的系統開發語言，加速專案進程。
+品質系統與客戶稽核：
+擔任廠內 FMEA 負責人，主導超過50場風險分析會議，將改善對策知識化並落實於日常作業。
+應對 Infineon, Apple, Intel, BOSCH 等10家以上國際級客戶稽核，介紹工廠製程，系統架構與風險管理流程。
+
+
+專業認證 (Professional Certifications)
+
+⊙ISO 26262 (道路車輛功能安全) / IATF 16949 (全球汽車產業品質管理系統驗證)
+
+⊙VDA 6.3 / FMEA 4th edition / AIAG VDA FMEA (失效模式與效應分析) 3rd Party個人資格認證
