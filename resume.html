@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="陳昱齊 YU CHI CHEN - 工程師（南茂科技與陽明交大資訊背景）。9 年半導體經驗：做過影像辨識模型與分類判定流程的整合，也開發過 MES 系統，具備 LangGraph、RAG、Tool Use 應用經驗。">
+<title>陳昱齊 · 工程師</title>
+<style>
+  :root{
+    --paper:#faf8f4;
+    --ink:#211c16;
+    --muted:#6f675b;
+    --line:#e4ded3;
+    --gold:#c89b3c;
+    --gold-soft:#e7d3a0;
+    --teal:#0f766e;
+    --teal2:#0e7490;
+    --radius:0;
+    --ease:cubic-bezier(.4,0,.2,1);
+    --maxw:1080px;
+    --nav-h:58px;
+    /* daisyui-inspired semantic tokens (local, zero-external) */
+    --c-base:#faf8f4;
+    --c-ink:#211c16;
+    --c-muted:#6f675b;
+    --c-line:#e4ded3;
+    --c-surface:#fff;
+    --c-accent:#c89b3c;
+    --c-primary:#0f766e;
+    --c-primary-2:#0e7490;
+    --c-accent-soft:#e7d3a0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 10px);}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC","Source Han Sans TC",system-ui,sans-serif;
+    line-height:1.65;-webkit-font-smoothing:antialiased;font-feature-settings:"kern" 1;overflow-wrap:break-word;
+  }
+
+  /* Skip link - keyboard / screen-reader first stop */
+  .skip{position:absolute;left:-9999px;top:0;background:var(--teal);color:#fff;padding:10px 16px;z-index:100;letter-spacing:.04em;}
+  .skip:focus{left:12px;top:calc(var(--nav-h) + 8px);outline:2px solid var(--gold);}
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--gold));z-index:60;transition:width .08s linear;}
+
+  /* STICKY NAV */
+  nav.topnav{
+    position:fixed;top:3px;left:0;right:0;height:var(--nav-h);z-index:50;
+    background:rgba(250,248,244,.92);backdrop-filter:saturate(140%) blur(6px);
+    border-bottom:2px solid var(--line);
+    display:flex;align-items:center;gap:4px;
+    padding:0 18px;
+  }
+  .topnav .brand{font-weight:700;letter-spacing:.04em;color:var(--ink);margin-right:auto;font-size:14px;white-space:nowrap;}
+  .topnav .brand b{color:var(--teal);}
+  .topnav a{
+    text-decoration:none;color:var(--muted);font-size:12.5px;letter-spacing:.02em;
+    padding:8px 11px;border-bottom:2px solid transparent;transition:color .2s var(--ease),border-color .2s var(--ease);white-space:nowrap;
+  }
+  .topnav a:hover{color:var(--ink);}
+  .topnav a.active{color:var(--teal);border-bottom-color:var(--gold);font-weight:600;}
+  .topnav .nav-toggle{display:none;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:calc(var(--nav-h) + 54px) 48px 96px;}
+
+  /* HERO */
+  .hero{display:flex;gap:36px;align-items:center;flex-wrap:wrap;position:relative;overflow:hidden;}
+  .mono{
+    --s:104px;position:relative;width:var(--s);height:var(--s);flex:0 0 auto;
+    display:grid;place-items:center;border-radius:50%;
+    background:conic-gradient(from 0deg,var(--gold),var(--teal),var(--teal2),var(--gold));
+    animation:spin 14s linear infinite, monoGlow 4s ease-in-out infinite;
+  }
+  .mono::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--paper);}
+  .mono span{position:relative;z-index:1;font-size:26px;font-weight:700;color:var(--ink);letter-spacing:.02em;animation:spin 14s linear infinite reverse;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @keyframes monoGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(200,155,60,0));}50%{filter:drop-shadow(0 0 14px rgba(200,155,60,.4));}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+  @keyframes heroIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  @keyframes popIn{from{opacity:0;transform:translateY(14px) scale(.96);}to{opacity:1;transform:none;}}
+  @keyframes diamondIn{from{opacity:0;transform:rotate(45deg) scale(.2);}to{opacity:1;transform:rotate(45deg) scale(1);}}
+
+  .hero-text{flex:1 1 360px;min-width:280px;}
+  .role{margin:10px 0 0;font-size:16px;color:var(--c-muted);letter-spacing:.03em;}
+  .role .eyebrow{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--c-accent);font-weight:700;margin-bottom:6px;}
+  .name{font-size:46px;line-height:1.05;font-weight:700;letter-spacing:.01em;margin:0;
+    background:linear-gradient(90deg,var(--ink),var(--gold),var(--teal),var(--gold),var(--ink));background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+}
+  .role{margin:10px 0 0;font-size:16px;color:var(--muted);letter-spacing:.03em;}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 14px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    font-size:13px;color:var(--ink);transition:transform .25s var(--ease),border-color .25s var(--ease),box-shadow .25s var(--ease);
+  }
+  .chip .ic{color:var(--teal);font-weight:700;}
+  .chip:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 6px 18px rgba(200,155,60,.18);}
+  .hero .mono{animation:spin 14s linear infinite, monoGlow 4s ease-in-out infinite, fadeIn .8s var(--ease) both;}
+  .hero .name{animation:heroIn .7s var(--ease) both .1s, nameShimmer 2.6s var(--ease) .5s both;}
+  .hero .role{animation:heroIn .7s var(--ease) both .25s;}
+  .hero .chips .chip{opacity:0;animation:heroIn .6s var(--ease) both;}
+  .hero .chips .chip:nth-child(1){animation-delay:.40s;}
+  .hero .chips .chip:nth-child(2){animation-delay:.50s;}
+  .hero .chips .chip:nth-child(3){animation-delay:.60s;}
+  .hero .chips .chip:nth-child(4){animation-delay:.70s;}
+
+  section{margin-top:64px;scroll-margin-top:calc(var(--nav-h) + 18px);}
+  .sec-label{
+    display:flex;align-items:center;gap:14px;margin:0 0 26px;
+    text-transform:uppercase;letter-spacing:.2em;font-size:12px;font-weight:700;color:var(--c-primary);
+  }
+  .sec-label .num{font-size:11px;font-weight:700;letter-spacing:.15em;color:var(--c-accent);
+    border:1px solid var(--c-line);padding:2px 8px;background:var(--c-surface);}
+  .sec-label::before{content:"";width:11px;height:11px;background:var(--gold);display:inline-block;transform:rotate(45deg);}
+  .sec-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent);}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+  .reveal.is-visible{opacity:1;transform:none;}
+  .reveal.is-visible .skill-group .tag{animation:popIn .5s var(--ease) both;}
+  .reveal.is-visible .tl-item{animation:fadeUp .6s var(--ease) both;}
+  .reveal.is-visible .card{animation:cardIn .7s var(--ease);}
+  .reveal.is-visible .why .w{animation:cardIn .7s var(--ease);}
+  .reveal.is-visible .sec-label::before{animation:diamondIn .6s var(--ease) both;}
+
+  .lead{margin:0;color:var(--ink);max-width:70ch;}
+  .lead .hl{color:var(--teal);font-weight:600;}
+  .about-pts{margin-top:16px;}
+
+  .skill-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .skill-group h3{margin:0 0 12px;font-size:14px;color:var(--teal2);letter-spacing:.04em;font-weight:700;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    padding:6px 12px;font-size:12.5px;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius);color:var(--ink);transition:all .22s var(--ease);cursor:default;
+  }
+  .tag:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-2px);}
+  .skill-note{margin:14px 0 0;font-size:12.5px;color:var(--muted);}
+
+  .timeline{position:relative;margin-left:14px;padding-left:30px;}
+  .timeline::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--line);}
+  .tl-item{position:relative;margin-bottom:34px;page-break-inside:avoid;}
+  .tl-item::before{
+    content:"";position:absolute;left:-37px;top:5px;width:13px;height:13px;background:var(--paper);
+    border:2px solid var(--gold);transform:rotate(45deg);transition:background .3s var(--ease);
+  }
+  .tl-item:hover::before{background:var(--gold);}
+  .tl-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 14px;align-items:baseline;}
+  .tl-title{font-weight:700;font-size:16px;margin:0;}
+  .tl-org{color:var(--muted);font-size:14px;}
+  .tl-dates{font-size:12.5px;color:var(--teal);letter-spacing:.04em;white-space:nowrap;font-weight:600;}
+  ul.b{list-style:none;margin:12px 0 0;padding:0;}
+  ul.b li{position:relative;padding-left:18px;margin:0 0 8px;color:var(--ink);}
+  ul.b li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--gold);}
+  ul.b li b{color:var(--teal);font-weight:600;}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px 24px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);page-break-inside:avoid;
+  }
+  .card::before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);}
+  .card:hover{transform:translateY(-6px);border-color:var(--gold-soft);box-shadow:0 14px 34px rgba(33,28,22,.10);}
+  .card:hover::before{transform:scaleX(1);}
+  .card .yr{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .card h3{margin:8px 0 10px;font-size:15.5px;line-height:1.35;}
+  .card p{margin:0;font-size:13px;color:var(--muted);line-height:1.6;}
+
+  .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .why .w{position:relative;padding:20px 18px 20px 56px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);transition:border-color .25s var(--ease),transform .25s var(--ease);page-break-inside:avoid;}
+  .why .w:hover{border-color:var(--teal);transform:translateY(-3px);}
+  @media(max-width:560px){.why{grid-template-columns:1fr;}}
+  .why .w .n{position:absolute;left:16px;top:18px;font-size:22px;font-weight:700;color:var(--gold-soft);font-feature-settings:"tnum";}
+  .why .w h4{margin:0 0 6px;font-size:14px;color:var(--ink);}
+  .why .w p{margin:0;font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+  .edu{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .edu .e{padding:18px 20px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:var(--radius);page-break-inside:avoid;}
+  .edu .e .d{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);font-weight:700;}
+  .edu .e .s{margin:6px 0 4px;font-weight:700;font-size:15px;}
+  .edu .e .c{font-size:12.5px;color:var(--muted);}
+
+  /* CONTACT */
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .contact-card{
+    position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 20px;transition:border-color .25s var(--ease),transform .25s var(--ease);
+  }
+  .contact-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .contact-card .k{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;margin:0 0 8px;}
+  .contact-card .v{font-size:15px;font-weight:600;color:var(--ink);margin:0;word-break:break-word;}
+  .contact-card a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold-soft);transition:color .2s var(--ease);}
+  .contact-card a:hover{color:var(--teal);}
+
+
+
+  @media (max-width:860px){
+    .wrap{padding:calc(var(--nav-h) + 40px) 22px 72px;}
+    .name{font-size:36px;}
+    .skill-groups,.cards,.why,.edu,.contact-grid{grid-template-columns:1fr;}
+    .topnav .brand{font-size:13px;}
+    .topnav a{padding:8px 7px;font-size:11.5px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .hero .chips .chip{opacity:1!important;}
+    .hero .glow{display:none!important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ===== EXTRA MOTION / WOW ===== */
+  .hero .glow{position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(240px circle at var(--mx,50%) var(--my,35%),rgba(200,155,60,.18),rgba(15,118,110,.12) 38%,transparent 70%);
+    opacity:0;transition:opacity .45s var(--ease);}
+  .hero:hover .glow{opacity:1;}
+  .hero-text,.mono{position:relative;z-index:1;}
+  @keyframes nameShimmer{0%{background-position:0 0;}50%{background-position:200% 0;}100%{background-position:0 0;}}
+  .count{font-variant-numeric:tabular-nums;}
+  .timeline::before{transform:scaleY(0);transform-origin:top;transition:transform 1.1s var(--ease);}
+  .timeline.is-drawn::before{transform:scaleY(1);}
+  .cards,.why{perspective:900px;}
+  .tilt{transition:transform .2s var(--ease);will-change:transform;}
+
+  /* ===== MORE MOTION (cohesive layer) ===== */
+  .count{display:inline-block;}
+  /* A. Hero ambient aurora */
+  .hero::before{
+    content:"";position:absolute;inset:-25% -15%;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(38% 42% at 18% 30%,rgba(200,155,60,.10),transparent 60%),
+      radial-gradient(34% 40% at 82% 28%,rgba(15,118,110,.09),transparent 62%),
+      radial-gradient(30% 36% at 60% 82%,rgba(14,116,144,.07),transparent 60%);
+    filter:blur(8px);opacity:.9;animation:aurora 18s ease-in-out infinite alternate;
+  }
+  @keyframes aurora{
+    0%{transform:translate3d(-2%,-1%,0) scale(1);}
+    100%{transform:translate3d(2%,1.5%,0) scale(1.06);}
+  }
+  /* B. Nav drop-in */
+  nav.topnav{animation:navDrop .6s var(--ease) both;}
+  @keyframes navDrop{from{transform:translateY(-100%);}to{transform:none;}}
+  /* C. Section label line draw */
+  .sec-label::after{transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .15s;}
+  .reveal.is-visible .sec-label::after{transform:scaleX(1);}
+  /* D. Timeline traveling pulse */
+  .timeline .tl-pulse{position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 4px rgba(200,155,60,.18);opacity:0;z-index:3;}
+  .timeline.is-drawn .tl-pulse{animation:tlTravel 1.1s var(--ease) forwards;}
+  @keyframes tlTravel{
+    0%{opacity:0;transform:translateY(0);}
+    15%{opacity:1;}
+    85%{opacity:1;}
+    100%{opacity:0;transform:translateY(var(--tl-h,600px));}
+  }
+  /* E. Staggered bullets */
+  .reveal .b li{opacity:0;transform:translateX(-10px);}
+  .reveal.is-visible .b li{animation:bulletIn .5s var(--ease) both;}
+  @keyframes bulletIn{from{opacity:0;transform:translateX(-10px);}to{opacity:1;transform:none;}}
+  /* F. Card depth entrance (no fill so hover lift still works) */
+  @keyframes cardIn{from{opacity:0;transform:translateY(26px) rotateX(9deg) translateZ(-34px) scale(.97);}to{opacity:1;transform:none;}}
+  /* G. Count finish pulse */
+  .count.done{animation:countPulse .5s var(--ease);}
+  @keyframes countPulse{0%{transform:scale(1);}40%{transform:scale(1.08);}100%{transform:scale(1);}}
+  /* H. Nav link sweep underline */
+  .topnav a{position:relative;overflow:hidden;}
+  .topnav a::after{content:"";position:absolute;left:11px;right:11px;bottom:6px;height:2px;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease);}
+  .topnav a:hover::after,.topnav a.active::after{transform:scaleX(1);}
+  /* I. Hero role blur reveal */
+  .hero .role{animation:heroBlur .9s var(--ease) both .25s;}
+  @keyframes heroBlur{from{opacity:0;filter:blur(8px);transform:translateY(18px);}to{opacity:1;filter:none;transform:none;}}
+  /* J. Back-to-top */
+  .totop{position:fixed;right:22px;bottom:22px;width:46px;height:46px;display:grid;place-items:center;
+    background:var(--ink);color:var(--gold);border:2px solid var(--gold);border-radius:0;z-index:70;
+    opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .3s var(--ease),transform .3s var(--ease),background .2s var(--ease);
+    cursor:pointer;font-size:18px;box-shadow:0 8px 22px rgba(33,28,22,.18);}
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+  .totop:hover{background:var(--gold);color:var(--ink);}
+  @media (prefers-reduced-motion:reduce){
+    .hero::before{animation:none;}
+    .reveal .b li{opacity:1;transform:none;animation:none;}
+    .timeline .tl-pulse{display:none;}
+    .count.done{animation:none;}
+    .hero .role{animation:none;filter:none;}
+    .sec-label::after{transform:none;}
+    nav.topnav{animation:none;}
+    .card::after,.why .w::after{display:none!important;}
+  }
+
+  /* ===== MORE MOTION (skill-guided additions) ===== */
+  /* 1) Lead scroll-scrub fade-in (scroll-driven timeline; non-supporting browsers keep it visible) */
+  @keyframes leadScrub{from{opacity:.12;transform:translateY(16px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion: no-preference){
+    @supports (animation-timeline: view()){
+      .lead{animation:leadScrub linear both;animation-timeline:view();animation-range:entry 4% cover 40%;}
+    }
+  }
+  /* 2) Section label divider scroll-progress fill (progressive as section scrolls through viewport) */
+  @keyframes secFill{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+  @media (prefers-reduced-motion: no-preference){
+    @supports (animation-timeline: view()){
+      .sec-label::after{transform-origin:left;animation:secFill linear both;animation-timeline:view();animation-range:entry 8% cover 52%;}
+    }
+  }
+  /* 3) Card / why cursor-follow sheen (radial highlight; no transform, safe with 3D tilt hover) */
+  .card::after,.why .w::after{
+    content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+    background:radial-gradient(160px circle at var(--sx,50%) var(--sy,50%),rgba(200,155,60,.14),rgba(15,118,110,.07) 36%,transparent 62%);
+    opacity:var(--sheen,0);transition:opacity .35s var(--ease);
+  }
+
+  /* N) Section number flip-in on reveal (not hoverable -> safe fill) */
+  @keyframes numFlip{from{opacity:0;transform:rotateX(-90deg);}to{opacity:1;transform:none;}}
+  .reveal.is-visible .sec-label .num{animation:numFlip .6s var(--ease) both;}
+  /* O) Timeline node hover pulse (hover-triggered, no fill lock) */
+  .tl-item::before{transition:background .3s var(--ease),box-shadow .3s var(--ease);}
+  .tl-item:hover::before{box-shadow:0 0 0 6px rgba(200,155,60,.18);}
+  /* ===== PRINT / ATS-FRIENDLY ===== */
+  @media print{
+    :root{--paper:#fff;}
+    html{scroll-behavior:auto;scroll-padding-top:0;}
+    #progress,.skip,.topnav{display:none!important;}
+    body{background:#fff;color:#000;}
+    .wrap{max-width:none;padding:0 14mm;margin:0;}
+    section{margin-top:22px;page-break-inside:avoid;}
+    .mono{animation:none;}
+    .reveal{opacity:1!important;transform:none!important;}
+    .chip,.card,.why .w,.edu .e,.contact-card{box-shadow:none;border-color:#bbb;}
+    .card::before,.sec-label::after,.card::after,.why .w::after{display:none;}
+    *{animation:none!important;}
+    .sec-label{color:#000;}
+    .sec-label .num{color:#000;border-color:#bbb;}
+
+    .sec-label::before{background:#000;}
+    ul.b li b,.lead .hl,.tl-dates,.card .yr,.edu .e .d,.contact-card .k{color:#000;}
+    a{color:#000;text-decoration:underline;}
+    .hero .glow{display:none!important;}
+    .name{color:#000!important;-webkit-text-fill-color:#000!important;background:none!important;}
+
+    @page{margin:14mm;}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳至主要內容</a>
+<div id="progress"></div>
+
+<nav class="topnav" aria-label="主要導覽">
+  <span class="brand">陳昱齊 <b>·</b> Resume</span>
+  <a href="#about">個人定位</a>
+  <a href="#skills">核心技術</a>
+  <a href="#exp">工作經歷</a>
+  <a href="#projects">專案亮點</a>
+  <a href="#edu">學歷</a>
+  <a href="#why">為什麼選我</a>
+</nav>
+
+<div class="wrap" id="main">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="mono" aria-hidden="true"><span>Haley</span></div>
+    <div class="hero-text">
+      <h1 class="name">陳昱齊　YU CHI CHEN</h1>
+      <p class="role"><span class="eyebrow">Position</span><br>AI 工程師　｜　LLM Serving / 製造 AI　｜　模型上線與評估</p>
+      <div class="chips">
+        <span class="chip"><span class="ic" aria-hidden="true">✉</span><a href="mailto:chyi6295@gmail.com" style="color:inherit;text-decoration:none;">chyi6295@gmail.com</a></span>
+        <span class="chip"><span class="ic" aria-hidden="true">☎</span><a href="tel:0986989798" style="color:inherit;text-decoration:none;">0986-989798</a></span>
+        <span class="chip"><span class="ic" aria-hidden="true">⌥</span><a href="https://github.com/HaleyChui" style="color:inherit;text-decoration:none;">github.com/HaleyChui</a></span>
+        <span class="chip"><span class="ic" aria-hidden="true">✎</span>陽明交大 資訊碩專班（在學）</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 個人定位 -->
+  <section id="about" class="reveal" aria-labelledby="l-about">
+    <h2 class="sec-label" id="l-about"><span class="num">01</span>個人定位</h2>
+        <p class="lead"><span class="count" data-to="9">0</span> 年半導體經驗（製程 7 年、MES IT 2 年），陽明交大資科碩專班在學。<br>熟悉晶圓廠生產與良率場景，目標是把 LLM 從原型推進成穩定服務的製造 AI 系統。</p>
+    <ul class="b about-pts">
+      <li><b>LLM Serving 框架建置</b>　以 LangGraph 建立 Agent 系統，實作 API 服務化與狀態持久化（Checkpoint 續跑），能支撐 LLM 從原型穩定上線為生產服務，對齊「建立靈活框架加速 AI 模型開發、專注 LLM serving」。</li>
+      <li><b>AI 原型產品化</b>　主導過 CV 模型上產線與 LLM 應用落地，從概念驗證推進成可被使用、能持續優化的系統，而非停在 PoC。</li>
+      <li><b>大規模即時數據後端</b>　熟悉資料批次與串流處理、REST API 與外部系統介接，能支援即時數據存取、收集、分析與監控的 AI 後端場景。</li>
+      <li><b>MLOps 與生產系統治理</b>　建立 Error Fallback、Logging / Tracing、Human Review 與 LLM-as-judge 評估流程，涵蓋模型部署、監控與自動化，持續提升 LLM 生產系統品質。</li>
+    </ul>
+  </section>
+
+  <!-- 核心技術 -->
+  <section id="skills" class="reveal" aria-labelledby="l-skills">
+    <h2 class="sec-label" id="l-skills"><span class="num">02</span>核心技術</h2>
+    <div class="skill-groups">
+      <div class="skill-group"><h3>LLM Serving / Agent</h3><div class="tags"><span class="tag">LangGraph 編排</span><span class="tag">RAG（faiss）</span><span class="tag">Tool Use / Function Calling</span><span class="tag">Checkpoint 續跑</span><span class="tag">hermes / MCP</span><span class="tag">API 服務化</span></div></div>
+      <div class="skill-group"><h3>核心技術</h3><div class="tags"><span class="tag">Python</span><span class="tag">C#</span><span class="tag">.NET Core</span><span class="tag">SQL</span><span class="tag">REST API</span><span class="tag">批次 / 串流處理</span></div></div>
+      <div class="skill-group"><h3>工程實踐</h3><div class="tags"><span class="tag">MLOps 部署/監控</span><span class="tag">模型上線</span><span class="tag">Error Handling / Fallback</span><span class="tag">Logging / Tracing</span><span class="tag">State 持久化</span><span class="tag">Human Review 驗收</span><span class="tag">Eval（LLM-as-judge）</span></div></div>
+      <div class="skill-group"><h3>製造領域</h3><div class="tags"><span class="tag">半導體製程</span><span class="tag">良率 / 品質場景</span><span class="tag">控管圖與異常預警</span><span class="tag">FMEA 風險分析</span><span class="tag">跨部門整合</span><span class="tag">國際客戶稽核</span></div></div>
+    </div>
+  </section>
+
+  <!-- 工作經歷 -->
+  <section id="exp" class="reveal" aria-labelledby="l-exp">
+    <h2 class="sec-label" id="l-exp"><span class="num">03</span>工作經歷</h2>
+    <div class="timeline"><div class="tl-pulse" aria-hidden="true"></div>
+      <div class="tl-item">
+        <div class="tl-top"><div><span class="tl-title">MES IT 工程師</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2024/04 - 至今</div></div>
+        <ul class="b">
+          <li><b>MES 實作</b>　以 C# / .NET Core 開發晶圓凸塊生產管控 API，串接資料來源與設備介面。</li>
+          <li><b>模組化</b>　資料讀寫與外部系統呼叫分離，維護或替換時不影響其他模組。</li>
+          <li><b>批次優化</b>　將高頻查詢改為批次處理，減少系統來回次數。</li>
+          <li><b>異常處理</b>　建立 retry、人工確認與交接紀錄流程，避免作業卡在錯誤循環。</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-top"><div><span class="tl-title">製程工程師（晶圓測試）</span> <span class="tl-org">｜ 南茂科技股份有限公司</span></div><div class="tl-dates">2017/04 - 2024/03</div></div>
+        <ul class="b">
+          <li><b>影像辨識導入</b>　主導 Probe Mark AI 上線（影像 API、SOP 判讀、人工複核），每年為產線節省 <span class="count" data-to="295">0</span> 萬元。</li>
+          <li><b>FMEA 風險分析</b>　主導 <span class="count" data-to="50">0</span>+ 場失效分析，建立標準作業與防呆機制。</li>
+          <li><b>國際客戶稽核</b>　參與 Apple / Intel / BOSCH 等 10+ 次稽核。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 專案亮點 -->
+  <section id="projects" class="reveal" aria-labelledby="l-proj">
+    <h2 class="sec-label" id="l-proj"><span class="num">04</span>專案亮點</h2>
+    <div class="cards">
+      <div class="card"><div class="yr">2023</div><h3>Probe Mark AI 影像辨識</h3><p>以 CNN（GoogLeNet）做影像檢索與判定，解決 PAD 色差造成的誤判與雙框選定；多層 Convolution 搭配 DoG 銳化突顯針痕邊緣，particle size 級距區分針痕與異物。建立自動複核標準統一各班別判定基準，實際運行於產線，每年節省 <span class="count" data-to="295">0</span> 萬元——系統跑穩才產生可度量的效益。</p></div>
+      <div class="card"><div class="yr">2026</div><h3>MES 凸塊生產管控 API</h3><p>以 .NET Core 開發生產管控系統。資料存取與外部系統呼叫各自封裝成模組，查詢結果以批次集中處理；異常時有明確處理路徑——retry、人工確認與交接紀錄，錯了能兜住、不中斷前端作業。把不穩定的外部依賴做成可靠、可維運的產線級服務。</p></div>
+    </div>
+  </section>
+
+  <!-- 學歷 -->
+  <section id="edu" class="reveal" aria-labelledby="l-edu">
+    <h2 class="sec-label" id="l-edu"><span class="num">05</span>學歷</h2>
+    <div class="edu">
+      <div class="e"><div class="d">碩士（在學）</div><div class="s">國立陽明交通大學 資訊科學碩士專班</div><div class="c">2024 - 預計 2026</div></div>
+      <div class="e"><div class="d">學士</div><div class="s">國立中正大學 物理學系</div><div class="c">2011 - 2015　｜　系統化建模與實驗驗證方法論</div></div>
+    </div>
+  </section>
+
+  <!-- 為什麼選我 -->
+  <section id="why" class="reveal" aria-labelledby="l-why">
+    <h2 class="sec-label" id="l-why"><span class="num">06</span>為什麼選我</h2>
+    <div class="why">
+      <div class="w"><span class="n">01</span><h4>9 年半導體現場</h4><p>懂製程與良率場景<br>能與工程部門用同一套語言</p></div>
+      <div class="w"><span class="n">02</span><h4>LLM 服務化</h4><p>做過 Agent API 與續跑機制<br>能支撐 LLM 穩定上線</p></div>
+      <div class="w"><span class="n">03</span><h4>模型上線經驗</h4><p>CV 模型實際運行於產線<br>也做過 LLM 評估流程</p></div>
+      <div class="w"><span class="n">04</span><h4>製造痛點對接</h4><p>理解控管圖、品質與抽樣<br>能把 AI 對到實際問題</p></div>
+      <div class="w"><span class="n">05</span><h4>系統性追根因</h4><p>50+ 場失效分析訓練<br>先拆結構、定位癥結再動手</p></div>
+      <div class="w"><span class="n">06</span><h4>嚴謹的異常處理</h4><p>Fallback、日誌、人工複核<br>出問題時有紀錄、有流程</p></div>
+    </div>
+  </section>
+
+  <section id="note" class="reveal" aria-labelledby="l-note">
+    <h2 class="sec-label" id="l-note"><span class="num">07</span>補充說明</h2>
+    <p class="lead" style="font-size:18px;line-height:1.7;color:var(--muted)">LLM / Agent 相關實作以個人練習專案持續累積（LangGraph、RAG、Tool Use 等），本履歷正式成就以實際上線的 Probe Mark AI 與 MES 凸塊生產管控 API 為主。</p>
+  </section>
+
+</div>
+
+<button class="totop" aria-label="回到頂部">↑</button>
+
+<script>
+  var bar=document.getElementById('progress');
+  function onScroll(){var h=document.documentElement;var max=h.scrollHeight-h.clientHeight;bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Active nav state via IntersectionObserver on sections
+  var navLinks=Array.prototype.slice.call(document.querySelectorAll('.topnav a'));
+  var byId={};navLinks.forEach(function(a){byId[a.getAttribute('href').slice(1)]=a;});
+  var secObserver=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        navLinks.forEach(function(a){a.classList.remove('active');a.removeAttribute('aria-current');});
+        var a=byId[e.target.id];
+        if(a){a.classList.add('active');a.setAttribute('aria-current','true');}
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  document.querySelectorAll('section[id]').forEach(function(s){secObserver.observe(s);});
+
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('is-visible');
+      if(e.target.id==='exp'){var tl=e.target.querySelector('.timeline');if(tl){tl.classList.add('is-drawn');tl.style.setProperty('--tl-h',tl.offsetHeight+'px');}}
+      e.target.querySelectorAll && e.target.querySelectorAll('.count').forEach(animateCount);
+      var sec=e.target;
+      sec.querySelectorAll('.skill-group .tag').forEach(function(el,i){el.style.animationDelay=(0.04+i*0.05)+'s';});
+      sec.querySelectorAll('.tl-item').forEach(function(el,i){el.style.animationDelay=(0.06+i*0.12)+'s';});
+      sec.querySelectorAll('.card').forEach(function(el,i){el.style.animationDelay=(0.06+i*0.1)+'s';});
+      sec.querySelectorAll('.why .w').forEach(function(el,i){el.style.animationDelay=(0.06+i*0.08)+'s';});
+      sec.querySelectorAll('.b li').forEach(function(el,i){el.style.animationDelay=(0.12+i*0.07)+'s';});
+      io.unobserve(e.target);
+    }
+  });},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // ---- WOW: count-up numbers ----
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reduced-motion fast-path: show everything immediately, no scroll/IO dependence.
+  if(reduce){
+    document.querySelectorAll('.reveal').forEach(function(el){
+      el.classList.add('is-visible');
+      if(el.id==='exp'){var tl=el.querySelector('.timeline');if(tl){tl.classList.add('is-drawn');tl.style.setProperty('--tl-h',tl.offsetHeight+'px');}}
+    });
+    document.querySelectorAll('.count').forEach(function(el){el.textContent=el.dataset.to;});
+  }
+  function animateCount(el){
+    if(el.dataset.done) return; el.dataset.done='1';
+    var to=parseInt(el.dataset.to,10), dur=1100, t0=null;
+    if(reduce){ el.textContent=to; return; }
+    function step(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/dur);
+      el.textContent=Math.round(to*(1-Math.pow(1-p,3)));
+      if(p<1) requestAnimationFrame(step); else { el.textContent=to; el.classList.add('done'); setTimeout(function(){el.classList.remove('done');},520); } }
+    requestAnimationFrame(step);
+  }
+  var countObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){animateCount(e.target);countObs.unobserve(e.target);}});},{threshold:.4});
+  document.querySelectorAll('.count').forEach(function(c){countObs.observe(c);});
+
+  // ---- WOW: hero cursor glow ----
+  var hero=document.querySelector('.hero');
+  if(hero && !reduce){ hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');hero.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');}); }
+
+  // ---- WOW: 3D tilt on cards ----
+  if(!reduce){ ['#projects .cards','#why .why'].forEach(function(sel){
+    var boxes=document.querySelectorAll(sel);
+    boxes.forEach(function(box){
+      box.querySelectorAll('.card,.w').forEach(function(it){ it.classList.add('tilt'); });
+      box.addEventListener('mousemove',function(e){var r=box.getBoundingClientRect();
+        box.querySelectorAll('.card,.w').forEach(function(it){var ir=it.getBoundingClientRect();var x=(e.clientX-ir.left)/ir.width-.5,y=(e.clientY-ir.top)/ir.height-.5;it.style.transform='perspective(900px) rotateX('+(-y*6)+'deg) rotateY('+(x*6)+'deg)';});});
+      box.addEventListener('mouseleave',function(){box.querySelectorAll('.card,.w').forEach(function(it){it.style.transform='';});});
+    });
+  }); }
+  // ---- MORE MOTION: cursor-follow sheen on cards / why (reduced-motion guarded) ----
+  if(!reduce){
+    document.querySelectorAll('.cards .card, .why .w').forEach(function(el){
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect();
+        el.style.setProperty('--sx',((e.clientX-r.left)/r.width*100)+'%');
+        el.style.setProperty('--sy',((e.clientY-r.top)/r.height*100)+'%');
+        el.style.setProperty('--sheen','1');
+      });
+      el.addEventListener('mouseleave',function(){ el.style.setProperty('--sheen','0'); });
+    });
+  }
+  // ---- MORE MOTION: back-to-top ----
+  var toTop=document.querySelector('.totop');
+  if(toTop){
+    window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>420);},{passive:true});
+    toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+  }
+</script>
+</body>
+</html>
